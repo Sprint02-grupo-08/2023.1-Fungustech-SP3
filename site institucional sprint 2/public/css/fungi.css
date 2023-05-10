@@ -83,14 +83,13 @@ p span {
 }
 
 .social {
-    background-color: #a7a19c;
+    background-color: #111113;
     height: 550px;
 }
 
 .card {
-    background-color: whitesmoke;
+    background-color: #212124;
     border-radius: 5px;
-    box-shadow:  10px 15px 10px #444242;
 }
 
 .card img {
@@ -117,14 +116,15 @@ p span {
 }
 
 .card h4 {
-    color: #000000;
+    color: #fff;
+    font-weight: lighter;
 }
 
 .card p {
     width: 300px;
     text-align: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: rgb(0, 0, 0);
+    font-weight: lighter;
+    color: white
 }
 
 .nossoSis {  
@@ -132,11 +132,8 @@ p span {
     justify-content: center;
     align-items: center;
     font-size: 50px;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #271d13;
     color: whitesmoke;
-    font-weight: 800;
-    text-shadow: 5px 5px 10px #625e5e;
+    font-weight: lighter;
 }
 
 .nossoSis2 {
@@ -144,8 +141,8 @@ p span {
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: #000000;
-    font-weight: 800;
+    color: #fff;
+    font-weight: lighter;
 }
 
 /* FOOTER */

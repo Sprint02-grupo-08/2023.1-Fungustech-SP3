@@ -22,35 +22,21 @@
 
     <div class="janela">
 
-
-        <div class="header-left dash-header">
-
-            <span><img src="./imgs/logo2.png" alt=""></span>
-
-            <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-            </div>
-
-            <div class="btn-nav">
-                <a href="">
-                    <h3>Estufas</h3>
-                </a>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./graficos.html">
-                    <h3>Gráficos</h3>
-                </a>
-            </div>
-
-            <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
-            </div>
-
-        </div>
-
         <div class="dash">
-            <h1>TEMPERATURA EMPRESA XPTO</h1>
+
+            <div class="header">
+                <div class="container">
+                    <a href="../public/index.html"><button>Sair</button></a>
+                    <select name="unidade" id="unidade" onChange="AbrirSecao(this.value)">
+                        <option value="">Estufas</option>
+                        <option value="../public/graficos.html">Estufa 1</option>
+                        <option value="../public/graficos.html">Estufa 2</option>
+                    </select>
+                    <span><img src="./imgs/logo.png" alt=""></span>
+                </div>
+            </div>
+
+            <!-- <h1>TEMPERATURA EMPRESA XPTO</h1>
             <div class="regua">
                 <div class="item-regua perigo-frio">
                     <h4>Crítico</h4>
@@ -80,42 +66,26 @@
                     <h4>Crítico</h4>
                     <h2>32°C</h2>
                 </div>
-            </div>
+            </div> -->
 
             <div class="cards">
                 <div class="card">
-                    <h1>Estufa 1</h1>
+                    <h1>Estufas - Analise de Temperatura Geral</h1>
                     <div class="temperatura">
-                        <p id="temp_aquario_1">22°C</p>
+                        <p id="temp_aquario_1">A análise de temperatura em suas estufas revelou problemas significativos que afetam negativamente sua produção de fungus</p>
                     </div>
                     <div class="cor-alerta" id="card_1"></div>
                 </div>
                 <div class="card">
-                    <h1>Estufa 2</h1>
+                    <h1>Estufas - Analise de Umidade Geral</h1>
                     <div class="temperatura">
-                        <p id="temp_aquario_2">24°C</p>
-                    </div>
-                    <div class="cor-alerta" id="card_2"></div>
-
-                </div>
-                <div class="card">
-                    <h1>Estufa 3</h1>
-                    <div class="temperatura">
-                        <p id="temp_aquario_3">32°C</p>
-                    </div>
-                    <div class="cor-alerta perigo-quente" id="card_3"></div>
-                </div>
-                <div class="card">
-                    <h1>Estufa 4</h1>
-                    <div class="temperatura">
-                        <p id="temp_aquario_4">27°C</p>
+                        <p id="temp_aquario_2">A análise da umidade em várias estufas de cogumelos revela um quadro positivo, com condições de umidade adequadas e favoráveis para o crescimento suadável dos  cogumelos</p>
                     </div>
                     <div class="cor-alerta" id="card_4"></div>
                 </div>
-
             </div>
 
-            <h1>UMIDADE EMPRESA XPTO</h1>
+            <!-- <h1>UMIDADE EMPRESA XPTO</h1>
             <div class="regua">
                 <div class="item-regua perigo-frio">
                     <h4>Crítico</h4>
@@ -178,7 +148,7 @@
                     <div class="cor-alerta" id="card_4"></div>
                 </div>
 
-            </div>
+            </div> -->
 
 
         </div>
@@ -190,6 +160,10 @@
 
 function limparSessao(){
             window.location.href =  "./index.html"
+}
+
+function AbrirSecao(secao){
+    window.open(""+secao+"", "_parent");
 }
 
 //     function atualizacaoPeriodica() {
