@@ -1,5 +1,5 @@
 *{
-    font-family: 'Segoe UI';
+    font-family: "Exo 2", sans-serif;
 }
 
 body {
@@ -133,7 +133,7 @@ p span {
     align-items: center;
     font-size: 50px;
     color: whitesmoke;
-    font-weight: lighter;
+    /* font-weight: lighter; */
 }
 
 .nossoSis2 {
@@ -142,7 +142,7 @@ p span {
     align-items: center;
     text-align: center;
     color: #fff;
-    font-weight: lighter;
+    /* font-weight: lighter; */
 }
 
 /* FOOTER */
