@@ -97,3 +97,11 @@
 </body>
 
 </html>
+<script>
+function enviar(){
+    var email = 'gabriel.bduarte@sptech.school';
+    var assunto = 'Olá, meu nome é ' + input_nome.value;
+    var corpo = input_mensagem.value;
+    window.open("mailto:" + email + "?subject" + assunto + "&body=" + corpo)
+}   
+</script>
