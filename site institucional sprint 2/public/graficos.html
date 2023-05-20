@@ -21,7 +21,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
-        
+
 </head>
 
 <body>
@@ -38,150 +38,258 @@
         </div>
     </div>
 
-         <div class="graficosPai">
+    <div class="graficosPai">
+        <div class="fundo-regua">
             <div class="divGrafico">
-                <h1>ESTUFA XPTO</h1><br>
-                <div class="fundoGrafico">
-                    <h2>Sensor DHT 11 - Umidade</h2>
-                    <section style="width:95%">
-                        <canvas id="dht11Umidade"></canvas>
-                    </section>
-                </div> <br> <br>
-                <div class="fundoGrafico">
-                    <h2>Sensor LM 35 - Temperatura</h2>
-                    <section style="width:95%">
-                        <canvas id="dht11Temperatura"></canvas>
-                    </section>
+
+                <h2>Sensor LM 35 - Temperatura</h2>
+                <section style="width:95%">
+                    <canvas id="dht11Temperatura"></canvas>
+                </section>
+
+            </div>
+
+            <div class="regua">
+
+                <div class="item-regua perigo-frio">
+                    <h4>Crítico</h4>
+                    <h2>16°C</h2>
                 </div>
+                <div class="item-regua emergencia-frio">
+                    <h4>Emergência</h4>
+                    <h2>18°C</h2>
+                </div>
+                <div class="item-regua alerta-frio">
+                    <h4>Alerta</h4>
+                    <h2>20°C</h2>
+                </div>
+                <div class="item-regua ideal">
+                    <h4>Ideal</h4>
+                    <h2>22°C | 28°C</h2>
+                </div>
+                <div class="item-regua alerta-quente">
+                    <h4>Alerta</h4>
+                    <h2>28.5°C</h2>
+                </div>
+                <div class="item-regua emergencia-frio">
+                    <h4>Emergência</h4>
+                    <h2>30°C</h2>
+                </div>
+                <div class="item-regua perigo-quente">
+                    <h4>Crítico</h4>
+                    <h2>32°C</h2>
+                </div>
+
             </div>
         </div>
 
-    <script>
+            <div class="cards">
+                <div class="card">
+                    <h1>Estufa 1</h1>
+                    <div class="temperatura">
+                        <p id="temp_aquario_1">84%</p>
+                    </div>
+                    <div class="cor-alerta" id="card_1"></div>
+                </div>
+                <div class="card">
+                    <h1>Estufa 2</h1>
+                    <div class="temperatura">
+                        <p id="temp_aquario_2">75%</p>
+                    </div>
+                    <div class="cor-alerta alerta-frio" id="card_2"></div>
 
-        function limparSessao(){
-            window.location.href =  "./index.html"
-        }
+                </div>
+            </div>
 
-        /* -- dht11Umidade -- */
-        var contextoDht11Umidade = document.getElementById('dht11Umidade').getContext('2d');
-        contextoDht11Umidade.canvas.width = 500;
-        contextoDht11Umidade.canvas.height = 200;
-        var dht11Umidade = new Chart(
-            contextoDht11Umidade,
-            {
-                type: 'line',
-                data: {
-                    datasets: [{
-                        label: 'Umidade',
+
+            <div class="graficosPai">
+                <div class="fundo-regua">
+                    <div class="divGrafico">
+                        <h2>Sensor DHT 11 - Umidade</h2>
+                        <section style="width:95%">
+                            <canvas id="dht11Umidade"></canvas>
+                        </section>
+                    </div>
+
+                    <div class="regua">
+                        <div class="item-regua perigo-frio">
+                            <h4>Crítico</h4>
+                            <h2>65%</h2>
+                        </div>
+                        <div class="item-regua emergencia-frio">
+                            <h4>Emergência</h4>
+                            <h2>70%</h2>
+                        </div>
+                        <div class="item-regua alerta-frio">
+                            <h4>Alerta</h4>
+                            <h2>75%</h2>
+                        </div>
+                        <div class="item-regua ideal">
+                            <h4>Ideal</h4>
+                            <h2>80% | 90%</h2>
+                        </div>
+                        <div class="item-regua alerta-quente">
+                            <h4>Alerta</h4>
+                            <h2>92%</h2>
+                        </div>
+                        <div class="item-regua emergencia-frio">
+                            <h4>Emergência</h4>
+                            <h2>95%</h2>
+                        </div>
+                        <div class="item-regua perigo-quente">
+                            <h4>Crítico</h4>
+                            <h2>99%</h2>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="cards">
+                    <div class="card">
+                        <h1>Estufa 1</h1>
+                        <div class="temperatura">
+                            <p id="temp_aquario_1">84%</p>
+                        </div>
+                        <div class="cor-alerta" id="card_1"></div>
+                    </div>
+                    <div class="card">
+                        <h1>Estufa 2</h1>
+                        <div class="temperatura">
+                            <p id="temp_aquario_2">75%</p>
+                        </div>
+                        <div class="cor-alerta alerta-frio" id="card_2"></div>
+    
+                    </div>
+                </div>    
+
+            </div>
+
+            <script>
+
+                function limparSessao() {
+                    window.location.href = "./index.html"
+                }
+
+                /* -- dht11Umidade -- */
+                var contextoDht11Umidade = document.getElementById('dht11Umidade').getContext('2d');
+                contextoDht11Umidade.canvas.width = 500;
+                contextoDht11Umidade.canvas.height = 200;
+                var dht11Umidade = new Chart(
+                    contextoDht11Umidade,
+                    {
                         type: 'line',
-                        borderColor: ['green'],
-                        backgroundColor: ['greenyellow']
-                    }]
-                },
-                options: {
-                    scales: {
-                        xAxes: [{
-                            distribution: 'series',
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }],
-                        yAxes: [{
-                            scaleLabel: {
-                                display: true,
-                                labelString: 'Umidade'
+                        data: {
+                            datasets: [{
+                                label: 'Umidade',
+                                type: 'line',
+                                borderColor: ['green'],
+                                backgroundColor: ['greenyellow']
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                xAxes: [{
+                                    distribution: 'series',
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }],
+                                yAxes: [{
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: 'Umidade'
+                                    },
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }]
                             },
-                            ticks: {
-                                beginAtZero: true
+                            animation: {
+                                duration: 0
                             }
-                        }]
-                    },
-                    animation: {
-                        duration: 0
+                        }
                     }
-                }
-            }
-        );
-        /* -- dht11Temperatura -- */
-        var contextoDht11Temperatura = document.getElementById('dht11Temperatura').getContext('2d');
-        contextoDht11Temperatura.canvas.width = 1000;
-        contextoDht11Temperatura.canvas.height = 300;
-        var dht11Temperatura = new Chart(
-            contextoDht11Temperatura,
-            {
-                type: 'line',
-                data: {
-                    datasets: [{
-                        label: "Temperatura",
+                );
+                /* -- dht11Temperatura -- */
+                var contextoDht11Temperatura = document.getElementById('dht11Temperatura').getContext('2d');
+                contextoDht11Temperatura.canvas.width = 500;
+                contextoDht11Temperatura.canvas.height = 200;
+                var dht11Temperatura = new Chart(
+                    contextoDht11Temperatura,
+                    {
                         type: 'line',
-                        borderColor: ['green'],
-                        backgroundColor: ['greenyellow']
-                    }]
-                },
-                options: {
-                    scales: {
-                        xAxes: [{
-                            distribution: 'series',
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }],
-                        yAxes: [{
-                            scaleLabel: {
-                                display: true,
-                                labelString: 'Temperatura'
+                        data: {
+                            datasets: [{
+                                label: "Temperatura",
+                                type: 'line',
+                                borderColor: ['green'],
+                                backgroundColor: ['greenyellow']
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                xAxes: [{
+                                    distribution: 'series',
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }],
+                                yAxes: [{
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: 'Temperatura'
+                                    },
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }]
                             },
-                            ticks: {
-                                beginAtZero: true
+                            animation: {
+                                duration: 0
                             }
-                        }]
-                    },
-                    animation: {
-                        duration: 0
+                        }
                     }
+                );
+
+                var paginacao = {};
+                var tempo = {};
+                function obterDados(grafico, endpoint) {
+                    var http = new XMLHttpRequest();
+                    http.open('GET', 'http://localhost:3000/sensores/' + endpoint, false);
+                    http.send(null);
+                    var valores = JSON.parse(http.responseText);
+                    if (paginacao[endpoint] == null) {
+                        paginacao[endpoint] = 0;
+                    }
+                    if (tempo[endpoint] == null) {
+                        tempo[endpoint] = 0;
+                    }
+                    // Exibir à partir do último elemento exibido anteriormente
+                    var ultimaPaginacao = paginacao[endpoint];
+                    paginacao[endpoint] = valores.length;
+                    var valores = valores.slice(ultimaPaginacao);
+                    valores.forEach((valor) => {
+                        //Máximo de 60 itens exibidos no gráfico
+                        if (grafico.data.labels.length == 10 && grafico.data.datasets[0].data.length == 10) {
+                            grafico.data.labels.shift();
+                            grafico.data.datasets[0].data.shift();
+                        }
+
+                        grafico.data.labels.push(tempo[endpoint]++);
+                        grafico.data.datasets[0].data.push(parseFloat(valor));
+                        grafico.update();
+                    })
                 }
-            }
-        );
-        
-        var paginacao = {};
-        var tempo = {};
-        function obterDados(grafico, endpoint) {
-            var http = new XMLHttpRequest();
-            http.open('GET', 'http://localhost:3000/sensores/' + endpoint, false);
-            http.send(null);
-            var valores = JSON.parse(http.responseText);
-            if (paginacao[endpoint] == null) {
-                paginacao[endpoint] = 0;
-            }
-            if (tempo[endpoint] == null) {
-                tempo[endpoint] = 0;
-            }
-            // Exibir à partir do último elemento exibido anteriormente
-            var ultimaPaginacao = paginacao[endpoint];
-            paginacao[endpoint] = valores.length;
-            var valores = valores.slice(ultimaPaginacao);
-            valores.forEach((valor) => {
-                //Máximo de 60 itens exibidos no gráfico
-                if (grafico.data.labels.length == 10 && grafico.data.datasets[0].data.length == 10) {
-                    grafico.data.labels.shift();
-                    grafico.data.datasets[0].data.shift();
-                }
 
-                grafico.data.labels.push(tempo[endpoint]++);
-                grafico.data.datasets[0].data.push(parseFloat(valor));
-                grafico.update();
-            })
-        }
+                setInterval(() => {
+                    obterDados(dht11Umidade, 'dht11/umidade');
+                    obterDados(dht11Temperatura, 'dht11/temperatura');
+                    obterDados(luminosidade, 'Temperatura');
+                    obterDados(lm35Temperatura, 'lm35/temperatura');
+                    obterDados(chave, 'chave');
+                }, 1000);
 
-        setInterval(() => {
-            obterDados(dht11Umidade, 'dht11/umidade');
-            obterDados(dht11Temperatura, 'dht11/temperatura');
-            obterDados(luminosidade, 'Temperatura');
-            obterDados(lm35Temperatura, 'lm35/temperatura');
-            obterDados(chave, 'chave');
-        }, 1000);
-
-    </script>
+            </script>
 </body>
 
 </html>
