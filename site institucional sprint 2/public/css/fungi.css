@@ -85,6 +85,8 @@ p span {
 .social {
     background-color: #111113;
     height: 550px;
+    
+    
 }
 
 .card {
@@ -101,6 +103,7 @@ p span {
 .social .container {
     justify-content: space-around;
     text-align: end;
+  
 }
 
 .container h1 {
