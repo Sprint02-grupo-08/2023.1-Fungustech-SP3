@@ -89,23 +89,23 @@
 }
 
 .pintomeiras {
-    margin-top: 15px;
+    margin-top: 5px;
 }
 
 .imgDuvida4{
     margin-top:11px;
-    margin-left: 10px;
+    margin-right:11px;
 }
 .imgDuvida3{
     margin-top:11px;
-    margin-left: 10px;
+    margin-right:10px;
 }
 .imgDuvida2{
  
-    margin-left: 10px;
+    margin-right:10px;
 }
 .imgDuvida1{
-    margin-left: 10px;
+    margin-right:10px;
 }
 .telefone {
     display: flex;
