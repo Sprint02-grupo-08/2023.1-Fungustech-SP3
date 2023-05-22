@@ -243,6 +243,18 @@ select {
   flex-wrap: wrap;
   display: flex;
   text-align: center;
+  height: 450px;
+  justify-content: right;
+  background-color: #212124;
+  font-size: 20px;
+}
+
+.card-dash {
+  margin: 2%;
+  width: 40%;
+  flex-wrap: wrap;
+  display: flex;
+  text-align: center;
   height: 300px;
   justify-content: right;
   background-color: #212124;
