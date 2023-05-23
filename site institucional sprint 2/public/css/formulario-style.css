@@ -13,7 +13,7 @@
 
 .caixa_formulario h1 {
     font-size: 30px;
-    color: green;
+    color: #692b2e;
 }
 
 .formulario {
@@ -24,7 +24,7 @@
 
 .formulario button {
     margin-top: 10px;
-    background: green;
+    background: #692b2e;
     color: #fff;
     padding: 10px 15px;
     border: none;

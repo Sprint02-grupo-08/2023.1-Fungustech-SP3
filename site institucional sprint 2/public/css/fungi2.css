@@ -23,7 +23,8 @@ body {
     display: flex;
     width: 80%;
     margin: auto;
-    /* flex-direction: column; */
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .header img {
@@ -36,8 +37,9 @@ body {
     height: 150px;
 }
 
+
 li b {
-    color: #2d9c17;
+    color: #692b2e;
 }
 
 ul img {
@@ -51,7 +53,7 @@ a {
 }
 
 a:hover {
-    color: #35c119;
+    color: #692b2e;
     transition: 0.3s all;
 } 
 
@@ -84,19 +86,19 @@ a:hover {
 p span {
     font-weight: 800;
     color: #f4e2cc;
-    -webkit-text-stroke-color: #2a2016;
+    -webkit-text-stroke-color: #692b2e;
     -webkit-text-stroke-width: 1px;
 }
 
 .social {
-    background-color: #111113;
+    background-color: #692b2e;
     height: 550px;
     
     
 }
 
 .card {
-    background-color: #212124;
+    background-color: #692b2e;
     border-radius: 5px;
 }
 
@@ -119,7 +121,7 @@ p span {
 
 .card {
     display: flex;
-    flex-direction:     ;
+    flex-direction:space-around;
     align-items: center;
     padding: 10px;
 }
@@ -157,7 +159,7 @@ p span {
 /* FOOTER */
 
 .footer {
-    background-color: #0c7033;
+    background-color: #692b2e;
     height: 100px;
     color: #fff;
     display: flex;
@@ -174,10 +176,10 @@ p span {
 }
       
 .navBar {
-    width: 450px;
+    width: 280px;
     display: flex;
     list-style: none;
-    color: #2a2016;
+    color: #692b2e;
     justify-content: space-between;
     font-size: 17px;
     padding: 40px 40px 40px 40px;
@@ -195,7 +197,7 @@ p span {
   
   .card_erro {
     display: none;
-    background-color: #a14242;
+    background-color: #692b2e;
     color: black;
     width: 230px;
     margin-top: 3%;

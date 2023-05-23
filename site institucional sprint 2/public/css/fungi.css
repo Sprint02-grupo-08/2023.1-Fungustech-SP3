@@ -20,7 +20,8 @@ body {
     display: flex;
     width: 80%;
     margin: auto;
-    /* flex-direction: column; */
+    flex-direction:row;
+    justify-content: space-evenly;
 }
 
 .header img {
@@ -37,7 +38,7 @@ body {
     width: 250px;
     display: flex;
     list-style: none;
-    color: #2a2016;
+    color: #692b2e;
     justify-content: space-between;
     font-size: 17px;
     padding: 40px 40px 40px 40px;
@@ -54,7 +55,7 @@ ul img {
 
 a {
     text-decoration: none;
-    color: #000000;
+    color: #692b2e;
 }
 
 a:hover {
@@ -89,7 +90,7 @@ a:hover {
 p span {
     font-weight: 800;
     color: #f4e2cc;
-    -webkit-text-stroke-color: #2a2016;
+    -webkit-text-stroke-color: #692b2e;
     -webkit-text-stroke-width: 1px;
 }
 
@@ -242,7 +243,7 @@ p span {
   
   .card_erro {
     display: none;
-    background-color: #a14242;
+    background-color: #692b2e;
     color: black;
     width: 230px;
     margin-top: 3%;
