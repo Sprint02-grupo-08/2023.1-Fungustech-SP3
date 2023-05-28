@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN - FungusTech</title>
+
+    <!-- Aqui colocamos o link para o arquivo de estilização-->
+    <link rel="stylesheet" href="./css/fungi2.css">
+
+    <link rel="stylesheet" href="./css/duvida.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Nosso caralho -->
+    <div class="header">
+        <div class="container">
+            <ul class="navBar">
+                <li><a href="./index.html">Home</a></li>
+                <!-- <li><a href="./calculadora.html">Simulador</a></li> -->
+                <li><a href="./login.html">Login</a> </li>
+                <!-- <li><a href="./cadastro.html">Cadastro</a></li> -->
+                <li id="aqui"><a href="duvida.html"><b>Fale Conosco</b></a></li>
+            </ul>
+            <div class="pp">
+                <h1 class="titulo"><img src="./imgs/logo.png"></h1>
+            </div>
+        </div>
+        
+    </div>
+    
+    <div class="duvida">
+        <h1>Deixe sua dúvida</h1>
+        <div class="formulario">
+
+            <input id="input_nome" class="emailInput" type="text" placeholder="Insira o seu nome">
+            <input id="input_email" class="emailInput" type="email" placeholder="Insira o seu E-mail">
+            <br>
+            <input id="input_mensagem" class="duvidaInput" placeholder="Insira sua Pergunta">
+
+            <button onclick="enviar()">Enviar</button>
+        </div>
+    </div>
+    <!-- Começo do Banner -->
+
+    <div class="banner">
+        <div class="container">
+            <!-- <div class="caixa_formulario"> -->
+
+                <!-- <div class="fundoContato"> -->
+                    <div class="pintomeiras">   
+                        <div class="contatoPai">
+                            <h2 class="tituloContato">CONTATO</h2>
+                            <div class="contato3">
+                                <h3 class="telefone"><img class="imgDuvida1" src="./imgs/chamada-telefonica.png"
+                                        style="height: 25px; width: 20px;">(11) 94300-5811 </h3>
+                                <h4 class="telefone"><img class="imgDuvida2" src="./imgs/no.png"
+                                        style="height: 25px; width: 25px;">fungustechdesk.freshdesk.com </h3>
+                            </div>
+
+                        </div>
+
+                        <div class="contatoPai">
+                            <h2 class="tituloContato">ENDEREÇO</h2>
+                            <div class="contato">
+                                <h6 class="telefone"><img class="imgDuvida3" src="./imgs/mapas-e-bandeiras.png"
+                                        style="height: 25px; width: 25px;">Rua Haddock Lobo, 595 - Cerqueira César, São
+                                    Paulo/SP, 01414-001</h6>
+                            </div>
+
+                        </div>
+                        <div class="contatoPai">
+                            <h2 class="tituloContato">ATENDIMENTO</h2>
+                            <div class="contato3">
+                                <h6 class="telefone"> <img class="imgDuvida4
+                                " src="./imgs/calendario.png" style="height: 25px; width: 25px;">Seg - Sex 9:00
+                                    am – 16:00 pm</h6>
+                            </div>
+
+                        </div>
+                    </div>
+                <!-- </div> -->
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <h4>Copyright by FungusTech &copy; 2023</h4>
+            <span class="version">v1.0.2</span>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script>
+    function enviar() {
+        var email = 'gabriel.bduarte@sptech.school';
+        var assunto = 'Olá, meu nome é ' + input_nome.value;
+        var corpo = input_mensagem.value;
+        window.open("mailto:" + email + "?subject" + assunto + "&body=" + corpo)
+    }   
+</script>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="./css/fungi.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+</head>
+<body>
+
+    <div class="header">
+        <div class="container">
+            <ul class="navBar">
+                <li><a href="index.html"><b>Home</b></a></li>
+                <li><a href="./login.html">Login</a></li>
+                <li ><a href="cadastro.html">cadastro</a></li>
+                <li ><a href="./duvida.html">Fale Conosco</a></li>
+            </ul>
+                <h1 class="titulo"><img src="./imgs/logo.png"></h1>
+        </div>
+    </div>
+
+    <div class="banner">
+        <div class="container">
+            <p>
+                Aumente seu <span>faturamento</span> em até <span>57%</span> 
+            </p>
+        </div>
+    </div>
+
+    <div class="solucao">
+        <img src="./imgs/enigma.png" alt="" style="width: 30%;">
+        <p>
+        <span>Nossa solução:</span> A solução que o nosso projeto oferece é a criação de um sistema automatizado de monitoramento de umidade e temperatura das culturas de fungos, com a possibilidade de consulta e análise dos dados a qualquer momento.
+        </p>
+    </div>
+
+    <div class="social">
+            <div>
+                <span class="nossoSis">Adquira já o nosso sistema</span>
+                <h4 class="nossoSis2">Realizaremos a implementação de um sistema <br> completo de monitoramento para a sua estufa </h4>
+            </div>
+            <div class="container">
+                <div class="card">
+                <img src="../public/imgs/fungo.png" alt="Empresa"> 
+                <h4>Registro do cliente e empresa</h4>
+                <p>Após o registro da sua empresa a nossa equipe irá até o seu local de produção e fornecera suporte completo durante 3 meses</p>
+            </div>
+            <div class="card">
+                <img src="../public/imgs/sensores.png" alt="Sensores"> 
+                <h4>Instalação dos sensores</h4>
+                <p>A equipe irá realizar a instalação dos sensores,  que irão fornecer dados sobre a umidade, temperatura e luminosidade dos compostos presentes na estufa</p>
+            </div>
+            <div class="card">
+                <img src="../public/imgs/graficos.png" alt="Gráficos"> 
+                <h4>Consulta dos dados</h4>
+                <p>Os dados da sua produção serão disponibilizados na seção "página do cliente",  e você terá acesso total para que consiga melhorar o tamanho e qualidade da sua produção</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="solucao">
+        <div class="caixa_formulario">
+            <h1>Calculadora Financeira</h1>
+            <div class="formulario">
+                <span>Informe o nome do seu fungo:</span>
+                <input id="input_nome" type="text">
+                <span>Informe o preço do seu fungo a cada 1kg:</span>
+                <input id="input_fungo" type="number">
+                <span>Informe quantos m2 de composto:</span>
+                <input id="input_area" type="number">
+                <button onclick="calcular()">Calcular</button> <br>
+                <div id="div_perda"> </div> <br>
+            </div>
+        </div>
+    </div>
+
+    <div class="sobre">
+        <p><span>Sobre nós:</span> Somos uma empresa paulista de pesquisa e inovação tecnológica com o foco na implementação de novas tecnologias no setor de fungicultura do estado de São Paulo.</p>
+        <img src="./imgs/fungustech.jpg" alt="" width="40%">
+    </div>
+
+    <div class="footer">
+        <div class="container">
+          <h4> Copyright by FungusTech &copy; 2023</h4>
+          <span class="version">v1.0.2</span>
+        </div>
+    </div>
+    
+</body>
+</html>
+
+<script>
+
+    function calcular() {
+        var nomeFungo = input_nome.value
+        var valorFungo = Number(input_fungo.value)
+        var MetrosFungos = input_area.value
+        var KilosFungos = MetrosFungos * 16 // 1 m2 possui em média 16 Kg de fungo
+        var KilosFungosComSensor = Math.floor(KilosFungos * 1.57) 
+
+        var PrecoSemSensor = KilosFungos * valorFungo;
+
+        var PrecoComSensor = KilosFungosComSensor * valorFungo;
+
+            div_perda.innerHTML = 
+            `A sua produção de fungos ${nomeFungo} sem o sensor é de ${KilosFungos}kg, com o sensor, 
+            a quantidade em média poderá ser de ${KilosFungosComSensor}kg<br>
+            Isso significa, que sua produção tem o valor de <b>R$${PrecoSemSensor}</b>, 
+            com o monitoramento digital o valor passará a ser de <b>R$${PrecoComSensor}</b>`
+    }
+
+</script>
