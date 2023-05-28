@@ -46,18 +46,14 @@
                     <h1>Cadastro</h1>
                     <div class="formulario">
     
-                        <span>Nome:</span>
+                        <span>Nome da Empresa:</span>
                         <input id="name_input" type="name" placeholder="Seu nome">
-                        <span>E-mail:</span>
-                        <input id="email_input" type="email" placeholder="Seu E-mail">
+                        <span>CNPJ:</span>
+                        <input id="cnpj_input" type="email" placeholder="Seu E-mail">
                         <span>Senha:</span>
                         <input id="senha_input" type="password" placeholder="*****">
                         <span>Confirme a senha:</span>
-                        <input id="confirmacaoSenha_input" type="password" placeholder="*****"> 
-                        <span>Selecione sua empresa</span>
-                        <select id="empresasSelect" name="empresa">
-                            <option></option>
-                        </select>
+                        <input id="confirmacaoSenha_input" type="password" placeholder="*****">
 
                         <li class="check">
                             <input type="checkbox" id="checkbox">
@@ -90,43 +86,15 @@
 </html>
 
 <script>
-    var empresas;
-     fetch("/empresa/listar", {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }).then(resposta => {
-
-            console.log(resposta.data)
-
-            empresas = resposta.data;
-
-            var selectElement = document.getElementById('empresasSelect');
-
-// Itera sobre o array de empresas e cria as opções do select
-empresas.forEach(function(empresa) {
-    var optionElement = document.createElement('option');
-    optionElement.value = empresa.id;
-    optionElement.text = empresa.nome;
-    selectElement.appendChild(optionElement);
-});
-              
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-        });
-
-
-
     function cadastrar () {
         var nome = name_input.value
-        var email = email_input.value
+        var cnpj = cnpj_input.value
         var senha = senha_input.value
         var confirmeSenha = confirmacaoSenha_input.value
 
         
 
-    if (nome == ""|| email ==  "" || senha == "" || confirmeSenha == "" ) {
+    if (nome == ""||cnpj == '' || senha == "" || confirmeSenha == "" ) {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "Os campos precisam ser preenchidos";
             setInterval(sumirMensagem,5000)
@@ -135,17 +103,13 @@ empresas.forEach(function(empresa) {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "O termo de uso precisa ser assinado";
             setInterval(sumirMensagem,5000)
-        }else if (email.indexOf('@') < 0) {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "O e-mail está com o formato inválido";
-            setInterval(sumirMensagem, 5000)
         } else if (senha.length < 6) {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "A senha precisa ter mais que 6 caracteres";
             setInterval(sumirMensagem,5000)
         }  else {
             window.location = "./login.html"
-            fetch("/usuarios/cadastrar", {
+            fetch("/empresa/cadastrar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -154,8 +118,8 @@ empresas.forEach(function(empresa) {
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
                 nomeServer: nome,
-                emailServer: email,
-                senhaServer: senha,
+                cnpjServer: cnpj,
+                senhaServer: senha
             })
         }).then(function (resposta) {
 
@@ -167,7 +131,7 @@ empresas.forEach(function(empresa) {
                 mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
                 setTimeout(() => {
-                    window.location = "login.html";
+                    window.location = "loginEmpresa.html";
                 }, "2000")
 
                 limparFormulario();

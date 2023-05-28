@@ -42,6 +42,13 @@
     border-radius: 10px;
 }
 
+.formulario select {
+    padding: 10px 15px;
+    text-align: center;
+    border: 2px solid #a7a19c;
+    border-radius: 10px;
+}
+
 .formulario span {
     font-size: 20px;
 }
