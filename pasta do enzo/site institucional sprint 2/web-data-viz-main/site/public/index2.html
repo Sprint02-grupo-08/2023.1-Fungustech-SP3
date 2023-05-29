@@ -6,6 +6,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
     <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+    
     <style>
         canvas {
             -moz-user-select: none;
@@ -18,7 +19,7 @@
 
 <body>
     <li ><a href="./site/public/Dashboard.html">proximo</a></li>
-    <li ><a href="./site/public/Dashboard.html">Cadastrar Local</a></li>
+    <li ><a href="cadastrarLocal.html">Cadastrar Local</a></li>
     <div>
         <h1>Sensor DHT 11 - Umidade</h1>
         <section style="width:100%">
@@ -41,7 +42,8 @@
             <canvas id="chave"></canvas>
         </section> -->
     </div>
-
+    </body>
+    </html>
     <script>
         /* -- dht11Umidade -- */
         var contextoDht11Umidade = document.getElementById('dht11Umidade').getContext('2d');
@@ -283,6 +285,4 @@
         }, 1000);
 
     </script>
-</body>
 
-</html>
