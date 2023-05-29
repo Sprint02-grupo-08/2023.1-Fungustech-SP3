@@ -64,10 +64,6 @@ a:hover {
     transition: 0.3s all;
 } 
 
-.cadastro-usuario {
-    text-decoration: underline;
-}
-
 .banner {
     width: 100%;
     height: 600px;
@@ -148,9 +144,14 @@ p span {
     color: #fff;
 }
 
-.sobre img {
+.FungusTech {
+    width: 500px;
+    height: 500px;
+    background: url(../imgs/fungustech.jpg);
     border-radius: 100%;
     box-shadow: #000000 10px 10px 30px;
+    background-size: cover;
+    background-position: center;
 }
 
 .social {
@@ -227,12 +228,13 @@ p span {
 }
 
   .footer .container {
-      justify-content: center;
+    justify-content: center;
     text-align: center;
 }
 
 .footer .container .version {
     font-size: 12px;
+    height: 50px;
 }
 
 #div_erros_login {
