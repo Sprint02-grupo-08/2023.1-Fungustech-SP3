@@ -34,8 +34,8 @@ const serial = async (
                 // CREDENCIAIS DO BANCO - MYSQL WORKBENCH
                 host: 'localhost',
                 user: 'root',
-                password: 'atauine1 ',
-                database: 'aquatech'
+                password: 'enzo123',
+                database: 'fungustech'
             }
         ).promise();
     } else if (AMBIENTE == 'producao') {

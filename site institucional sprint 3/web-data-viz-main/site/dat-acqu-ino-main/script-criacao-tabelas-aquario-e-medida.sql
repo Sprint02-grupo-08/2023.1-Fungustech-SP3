@@ -14,7 +14,7 @@ para workbench - local - desenvolvimento
 
 -- USE aquatech;
 
-
+	
 create table aquario (
 /* em nossa regra de negócio, um aquario tem apenas um sensor */
 	id INT PRIMARY KEY AUTO_INCREMENT,
