@@ -49,7 +49,7 @@
                         <span>Nome da Empresa:</span>
                         <input id="name_input" type="name" placeholder="Seu nome">
                         <span>CNPJ:</span>
-                        <input id="cnpj_input" type="email" placeholder="Seu E-mail">
+                        <input id="cnpj_input" type="email" placeholder="Seu CNPJ">
                         <span>Senha:</span>
                         <input id="senha_input" type="password" placeholder="*****">
                         <span>Confirme a senha:</span>
@@ -60,9 +60,11 @@
                             <label><u>Concordo com os termos de uso.</u>
                             </label>
                         </li>  
-                      
 
                         <button onclick="cadastrar()">Cadastrar</button>
+
+                        <br>
+                        <a href="cadastro.html" class="cadastro-usuario">Cadastrar usuario</a> 
                          
                     </div>
                 </div>
@@ -108,7 +110,7 @@
             mensagem_erro.innerHTML = "A senha precisa ter mais que 6 caracteres";
             setInterval(sumirMensagem,5000)
         }  else {
-            window.location = "./login.html"
+         
             fetch("/empresa/cadastrar", {
             method: "POST",
             headers: {
@@ -122,10 +124,10 @@
                 senhaServer: senha
             })
         }).then(function (resposta) {
-
-            console.log("resposta: ", resposta);
+            console.log(resposta)
 
             if (resposta.ok) {
+                console.log(resposta)
                 cardErro.style.display = "block";
 
                 mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
@@ -133,8 +135,14 @@
                 setTimeout(() => {
                     window.location = "loginEmpresa.html";
                 }, "2000")
+            //     var empresaStorage = {
+            //     nomeEmpresa: nome,
+            //     id: resposta.idEmpresa
+            // }
+            // var objString = JSON.stringify(empresaStorage);
+            // console.log(empresaStorage)
 
-                limparFormulario();
+            // localStorage.setItem('empresa', objString);
               
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");

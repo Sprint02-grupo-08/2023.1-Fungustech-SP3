@@ -33,7 +33,7 @@ function executar(instrucao) {
                 return sql.query(instrucao);
             }).then(function (resultados) {
                 console.log(resultados);
-                resolve(resultados.recordset);
+                resolve(resultados);
             }).catch(function (erro) {
                 reject(erro);
                 console.log('ERRO: ', erro);

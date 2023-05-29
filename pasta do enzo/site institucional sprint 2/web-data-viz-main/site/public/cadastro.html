@@ -64,10 +64,11 @@
                             <label><u>Concordo com os termos de uso.</u>
                             </label>
                         </li>  
-                      
 
                         <button onclick="cadastrar()">Cadastrar</button>
-                         
+
+                        <a href="cadastroEmpresa.html" class="cadastro-usuario">Cadastrar empresa</a> 
+
                     </div>
                 </div>
                 <div class="alerta_erro">
@@ -107,7 +108,7 @@
 // Itera sobre o array de empresas e cria as opções do select
 empresas.forEach(function(empresa) {
     var optionElement = document.createElement('option');
-    optionElement.value = empresa.id;
+    optionElement.value = empresa.idEmpresa;
     optionElement.text = empresa.nome;
     selectElement.appendChild(optionElement);
 });
