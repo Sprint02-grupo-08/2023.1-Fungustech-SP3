@@ -24,25 +24,125 @@
     justify-content: center;
 }
 
-.duvida h1 {
-    color: white;
+
+.duvidaInput {
+    height: 100px;
+    width: 90%;
 }
 
-.duvida {
-    background-color: #212124;
+.emailInput{
+    width: 90%;
+}
+
+.contato {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    margin:0px;
+    height: auto;
+    flex-direction: column;
+    text-align: center;
+}
+
+.contato3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    margin:0px;
+    height: auto;
+    flex-direction: column;
+    text-align: center;
+}
+
+.fundoContato {
+    /* border-radius: 4px; */
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(46, 41, 41);
+    width: 550px;
+    height: 400px;
+}
+
+.telefone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 13px;
+    text-align: center;
+    color: #fff;
+    width: 200px;
+    height: 200px;
+}
+
+.tituloContato {
+    display: flex;
+    justify-content: start;
+    margin: 0;
+    color: #fff;
+    font-weight: 800;
+    flex-direction: row;
+
+}
+
+.contatoPai {
+    display: flex;
+    height: auto;
+    width: 200px;
+    height: 250px;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
 
+.div_style {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #111113;
+}
+
+.caixa-duvidas {
+    display: flex;
+    width: 100%;
+    height: 600px;
+}
+    
+.duvida {
+    background-color: #212124;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    width: 50%;
+}
+
+.duvida h1 {
+    color: white;
+}
+
+aside {
+    background-color: #212124;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
 .formulario {
     display: flex;
     flex-direction: column;
-    /* width: 200px; */
-    flex-direction: center;
-    justify-content: center;
-    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 450px;
+    height: 350px;
     align-items: center;
     text-align: center;
 }
@@ -64,99 +164,9 @@
 .formulario input {
     padding: 10px 15px;
     text-align: center;
-    border: 2px solid #a7a19c;
-    border-radius: 10px;
+    border: none;
 }
 
 .formulario span {
     font-size: 20px;
-}
-
-.duvidaInput {
-    height: 100px;
-    width: 90%;
-}
-
-.emailInput{
-    width: 90%;
-}
-
-.contato {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 490px;
-    margin:0px;
-    height: auto;
-    flex-direction: column;
-    text-align: center;
-}
-
-.contato3 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 280px;
-    margin:0px;
-    height: auto;
-    flex-direction: column;
-    text-align: center;
-}
-
-.fundoContato {
-    /* border-radius: 4px; */
-    /* display: flex; */
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(46, 41, 41);
-    width: 550px;
-    height: 400px;
-}
-
-.imgDuvida4{
-    margin-top:11px;
-    margin-left:30px;
-    margin-right: 5px;
-}
-.imgDuvida3{
-    margin-top:11px;
-    margin-right:10px;
-}
-.imgDuvida2{
- 
-    margin-right:10px;
-}
-.imgDuvida1{
-    margin-right:15px;
-}
-.telefone {
-    display: flex;
-    margin-left: 30px;
-    align-items: center;
-    justify-content: center;
-    font-size: 13px;
-    text-align: center;
-    color: #000000;
-    margin-top: 20px;
-
-
-}
-
-.tituloContato {
-    /* display: flex; */
-    justify-content: start;
-    margin: 0;
-    margin-left: 30px;
-    color: #000000;
-    font-weight: 800;
-    flex-direction: row;
-}
-
-.contatoPai {
-    display: flex;
-    height: auto;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
 }
