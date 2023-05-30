@@ -20,40 +20,24 @@
 
 <body onload="validarSessao(), atualizacaoPeriodica()">
 
-    <div class="janela">
-
-
-        <div class="header-left dash-header">
-
-            <h1>AquaTech</h1>
-
-            <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-            </div>
-
-            <div class="btn-nav">
-                <h3>Aquários</h3>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./dashboard.html">
-                    <h3>Gráficos</h3>
-                </a>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
-                </a>
-            </div>
-
-            <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
-            </div>
-
+    <div class="header-left">
+        <div class="hello">
+            <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
         </div>
 
-        <div class="dash">
+        <a href="../index.html"><button>Sair</button></a>
+        <select name="unidade" id="unidade" onChange="AbrirSecao(this.value)">
+            <option value="">Estufas</option>
+            <option value="../public/graficos.html">Estufa 1</option>
+            <option value="../public/graficos.html">Estufa 2</option>
+        </select>
+
+        <h1><img src="../imgs/logo.png" alt=""></h1>
+    </div>
+
+    <div class="janela">
+
+    
             <div class="regua">
                 <div class="item-regua perigo-frio">
                     <h4>Perigo</h4>
@@ -79,38 +63,22 @@
 
             <div class="cards">
                 <div class="card">
-                    <h1>Aquário 1</h1>
+                    <h1>Estufas - Analise de Temperatura Geral</h1>
                     <div class="temperatura">
                         <p id="temp_aquario_1">-°C</p>
                     </div>
                     <div class="cor-alerta" id="card_1"></div>
                 </div>
+                
                 <div class="card">
-                    <h1>Aquário 1</h1>
-                    <div class="temperatura">
-                        <p id="temp_aquario_2">-°C</p>
-                    </div>
-                    <div class="cor-alerta" id="card_2"></div>
-
-                </div>
-                <div class="card">
-                    <h1>Aquário 1</h1>
+                    <h1>Estufas - Analise de Umidade Geral</h1>
                     <div class="temperatura">
                         <p id="temp_aquario_3">-°C</p>
                     </div>
-                    <div class="cor-alerta ideal" id="card_3"></div>
-                </div>
-                <div class="card">
-                    <h1>Aquário 1</h1>
-                    <div class="temperatura">
-                        <p id="temp_aquario_4">-°C</p>
-                    </div>
-                    <div class="cor-alerta" id="card_4"></div>
+                    <div class="cor-alerta perigo-quente" id="card_3"></div>
                 </div>
 
             </div>
-
-        </div>
     </div>
 
 
