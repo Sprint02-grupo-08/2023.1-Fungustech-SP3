@@ -51,10 +51,11 @@
 </body>
 
 <script>
-var fkEmpresa = sessionStorage.getItem('fk_EMPRESA')
+
 function salvar(){
 var cep = input_cep.value;
 var numero = Number(input_numero.value);
+var fkEmpresa = sessionStorage.getItem('ID_EMPRESA')
 
     if (cep == "" || numero == "" || fkEmpresa == '') {
 
@@ -79,14 +80,7 @@ var numero = Number(input_numero.value);
 
                 resposta.json().then(json => {
                     console.log(json);
-                    console.log(JSON.stringify(json));
-
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.idUsuario;
-                    // sessionStorage.fk_EMPRESA = json.fkEmpresa;
-                    // SALVANDO FK EMPRESA COMO 1 SO PARA TESTE NO CADASTRO DO LOCAL, ENQUANTO NAO RESOLVEMOS O PROBLEMA DE LISTAR AS EMPRESAS NO CADASTRO DE USUARIO
-                    sessionStorage.fk_EMPRESA = 1
+                    console.log(JSON.stringify(json))
 
                     cardErro.style.display = "block";
 

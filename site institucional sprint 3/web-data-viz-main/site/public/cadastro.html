@@ -129,7 +129,7 @@ for (let i = 0; i < empresas.length; i++) {
         var email = email_input.value
         var senha = senha_input.value
         var confirmeSenha = confirmacaoSenha_input.value
-        // var idEmpresa = empresasSelect.value
+        var idEmpresa = empresasSelect.value
         
 
     if (nome == ""|| email ==  "" || senha == "" || confirmeSenha == "" ) {
@@ -161,8 +161,8 @@ for (let i = 0; i < empresas.length; i++) {
                 // Agora vá para o arquivo routes/usuario.js
                 nomeServer: nome,
                 emailServer: email,
-                senhaServer: senha
-                // fkEmpresaServer: idEmpresa
+                senhaServer: senha,
+                fkEmpresaServer: idEmpresa
             })
         }).then(function (resposta) {
 
