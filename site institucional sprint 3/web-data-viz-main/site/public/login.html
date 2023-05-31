@@ -44,7 +44,7 @@
                     <h1>Olá, de novo!</h1>
                     <div class="formulario-login">
     
-                        <input id="email_input" type="email" placeholder="Seu E-mail">
+                        <input id="email_input" type="email" placeholder="Seu E-mail ou CNPJ">
     
                         <input id="senha_input" type="password" placeholder="Senha">
     
@@ -133,6 +133,43 @@
                 });
 
             } else {
+                fetch("/empresa/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                cnpjServer: email,
+                senhaServer: senha
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.idEmpresa;
+                    // sessionStorage.fk_EMPRESA = json.fkEmpresa;
+                    // SALVANDO FK EMPRESA COMO 1 SO PARA TESTE NO CADASTRO DO LOCAL, ENQUANTO NAO RESOLVEMOS O PROBLEMA DE LISTAR AS EMPRESAS NO CADASTRO DE USUARIO
+                    sessionStorage.fk_EMPRESA = 1
+
+                    cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML = "Login realizado com sucesso! Redirecionando para tela de Login...";
+
+                    setTimeout(function () {
+                        window.location = "dashboard/cards.html";
+                    }, 1000); // 
+
+                });
+
+            } else {
 
                 console.log("Houve um erro ao tentar realizar o login");
 
@@ -141,6 +178,14 @@
                 resposta.text().then(texto => {
                     console.error(texto);
                 });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "O Login está inválido";
+        })
+                
             }
 
         }).catch(function (erro) {

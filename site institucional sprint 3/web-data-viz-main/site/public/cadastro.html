@@ -94,21 +94,29 @@
             headers: {
                 "Content-Type": "application/json"
             }
-        }).then(resposta => {
+        })
+        .then(response => {
+    if (!response.ok) {
+      throw new Error('Erro ao fazer a solicitação GET');
+    }
+    return response.json();
+  }).then(data => {
 
-            console.log(resposta.data)
+            console.log(data)
 
-            empresas = resposta.data;
+            empresas = data;
 
             var selectElement = document.getElementById('empresasSelect');
 
 // Itera sobre o array de empresas e cria as opções do select
-empresas.forEach(function(empresa) {
-    var optionElement = document.createElement('option');
-    optionElement.value = empresa.idEmpresa;
-    optionElement.text = empresa.nome;
-    selectElement.appendChild(optionElement);
-});
+for (let i = 0; i < empresas.length; i++) {
+  const empresa = empresas[i];
+
+  const optionElement = document.createElement('option');
+  optionElement.value = empresa.idEmpresa;
+  optionElement.text = empresa.nome;
+  selectElement.appendChild(optionElement);
+}
               
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
@@ -121,7 +129,7 @@ empresas.forEach(function(empresa) {
         var email = email_input.value
         var senha = senha_input.value
         var confirmeSenha = confirmacaoSenha_input.value
-
+        // var idEmpresa = empresasSelect.value
         
 
     if (nome == ""|| email ==  "" || senha == "" || confirmeSenha == "" ) {
@@ -153,7 +161,8 @@ empresas.forEach(function(empresa) {
                 // Agora vá para o arquivo routes/usuario.js
                 nomeServer: nome,
                 emailServer: email,
-                senhaServer: senha,
+                senhaServer: senha
+                // fkEmpresaServer: idEmpresa
             })
         }).then(function (resposta) {
 
