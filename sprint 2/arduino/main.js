@@ -49,9 +49,8 @@ const serial = async (
 
         if (HABILITAR_OPERACAO_INSERIR) {
             await poolBancoDados.execute(
-                'INSERT INTO leitura (dht11_umidade, dht11_temperatura, luminosidade, lm35_temperatura, chave) VALUES (?, ?, ?, ?, ?)',
-                'INSERT INTO leitura (dht11_umidade, lm35_temperatura, chave) VALUES (?, ?, ?)',
-                [dht11Umidade, lm35Temperatura, chave]
+                'INSERT INTO leitura (dht11_umidade, dht11_temperatura, chave) VALUES (?, ?, ?)'
+                [dht11Umidade, dht11Temperatura, chave]
             );
         }
     });
