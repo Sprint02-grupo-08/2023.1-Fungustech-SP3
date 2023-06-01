@@ -26,7 +26,7 @@
 
             <div class="header">
                 <div class="container">
-                    <a href="../public/index2.html"><button>Sair</button></a>
+                    <a href="index.html"><button>Sair</button></a>
 
                     <span><img src="./imgs/logo.png" alt=""></span>
                 </div>
@@ -37,8 +37,11 @@
                     <h1>Cadastre o local da sua estufa</h1>
                    
                     <div class="temperatura">
-                        CEP: <input type="text" id="input_cep">
-                        número: <input type="number" name="" id="input_numero">
+                        Rua: <input type="text" name="" id="input_rua"><br>
+                        CEP: <input type="text" id="input_cep"><br>
+                        número: <input type="number" name="" id="input_numero"><br>
+                        andar: <input type="number" name="" id="input_andar"><br>
+                        complemento: <input type="number" name="" id="input_complemento">
                         <button onclick="salvar()">Salvar</button>
                     </div>
                     <div class="cor-alerta" id="card_1"></div>
@@ -53,11 +56,15 @@
 <script>
 
 function salvar(){
+var rua = input_rua.value;
 var cep = input_cep.value;
 var numero = Number(input_numero.value);
+var andar = Number(input_andar.value);
+var complemento = Number(input_complemento.value);
+
 var fkEmpresa = sessionStorage.getItem('ID_EMPRESA')
 
-    if (cep == "" || numero == "" || fkEmpresa == '') {
+    if (cep == "" || numero == "" || fkEmpresa == '' || complemento == '' || andar == "" || rua == "") {
 
             mensagem_erro.innerHTML = "Os campos precisam ser preenchidos";
 
@@ -68,8 +75,11 @@ var fkEmpresa = sessionStorage.getItem('ID_EMPRESA')
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
+                ruaServer: rua,
                 cepServer: cep,
                 numeroServer: numero,
+                andarServer: andar,
+                complementoServer: complemento,
                 fkEmpresaServer: fkEmpresa
             })
         }).then(function (resposta) {
@@ -82,12 +92,12 @@ var fkEmpresa = sessionStorage.getItem('ID_EMPRESA')
                     console.log(json);
                     console.log(JSON.stringify(json))
 
-                    cardErro.style.display = "block";
+                //     cardErro.style.display = "block";
 
-                mensagem_erro.innerHTML = "Login realizado com sucesso! Redirecionando para tela de Login...";
+                // mensagem_erro.innerHTML = "Login realizado com sucesso! Redirecionando para tela de Login...";
 
                     setTimeout(function () {
-                        window.location = "index2.html";
+                        window.location.href = "dashboard.html";
                     }, 1000); // 
 
                 });

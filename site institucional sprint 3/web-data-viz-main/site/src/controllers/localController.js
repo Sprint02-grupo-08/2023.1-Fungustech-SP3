@@ -62,21 +62,30 @@ function entrar(req, res) {
 
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var rua = req.body.ruaServer;
     var cep = req.body.cepServer;
     var numero = req.body.numeroServer;
-    var fkEmpresa = req.body.fkEmpresaServer;
+    var andar = req.body.andarServer;
+    var complemento = req.body.complementoServer;
+    var fkEmp = req.body.fkEmpresaServer;
 
     // Faça as validações dos valores
     if (cep == undefined) {
         res.status(400).send("Seu cep está undefined!");
+    } else if (rua == undefined) {
+        res.status(400).send("Seu numero está undefined!");
     } else if (numero == undefined) {
         res.status(400).send("Seu numero está undefined!");
-    } else if (fkEmpresa == undefined) {
+    } else if (andar == undefined) {
+        res.status(400).send("Seu numero está undefined!");
+    } else if (complemento == undefined) {
+        res.status(400).send("Seu numero está undefined!");
+    } else if (fkEmp == undefined) {
         res.status(400).send("Sua fkEmpresa está undefined!");
     } else {
         
         // Passe os valores como parâmetro e vá para o arquivo localModel.js
-        localModel.cadastrar(cep, numero, fkEmpresa)
+        localModel.cadastrar(rua, cep, numero, andar, complemento, fkEmp)
             .then(
                 function (resultado) {
                     res.json(resultado);

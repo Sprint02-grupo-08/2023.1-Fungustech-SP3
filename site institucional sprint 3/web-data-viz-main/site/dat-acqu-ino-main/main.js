@@ -33,8 +33,8 @@ const serial = async (
                 // altere!
                 // CREDENCIAIS DO BANCO - MYSQL WORKBENCH
                 host: 'localhost',
-                user: 'fungus',
-                password: '1234',
+                user: 'root',
+                password: '0',
                 database: 'fungustech'
             }
         ).promise();
