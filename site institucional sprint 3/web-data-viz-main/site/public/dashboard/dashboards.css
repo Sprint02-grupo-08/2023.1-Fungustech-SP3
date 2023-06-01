@@ -14,6 +14,15 @@ body {
   background-color: #161618;
 }
 
+.dash-right {
+  display: flex;
+  width: 80%;
+  height: fit-content;
+  background-color: #161618;
+  position: relative;
+  top: 0;
+  left: 25%;
+}
 .header-left {
   display: flex;
   justify-content: space-evenly;
