@@ -14,6 +14,9 @@ nome VARCHAR(45),
 senha VARCHAR(45),
 CNPJ CHAR (14)) AUTO_INCREMENT = 01;
 
+insert into empresa values 
+(null, 'sptech', '123', '1234567891234');
+
 CREATE TABLE usuario (
 idUsuario INT AUTO_INCREMENT,
 nome VARCHAR(45),
@@ -24,8 +27,9 @@ fkEmpresa INT,
   REFERENCES empresa (idEmpresa),
    CONSTRAINT idUsuario PRIMARY KEY (idUsuario, fkEmpresa));
 
+
 CREATE TABLE localEstufa (
-idAquario INT PRIMARY KEY AUTO_INCREMENT,
+idLocal INT PRIMARY KEY AUTO_INCREMENT,
 rua VARCHAR(45),
 numero INT,
 cep CHAR(8),
@@ -34,15 +38,25 @@ complemento VARCHAR(45),
 fkEmp INT,
  CONSTRAINT fkEmpresa FOREIGN KEY (fkEmP)
   REFERENCES empresa (idEmpresa));
+  
+  INSERT INTO localEstufa (rua, numero, cep, andar, complemento, fkEmp)
+VALUES ('Rua das Flores', 123, '12345678', 2, 'Apto 201', 1);
         
 CREATE TABLE medida (
 idMedida INT PRIMARY KEY AUTO_INCREMENT,
 momento DATETIME,
-dht11_umidade DOUBLE,
-dht11_temperatura DOUBLE,
+dht11_umidade decimal (10,2),
+dht11_temperatura decimal (10, 2),
 fkLocal INT, 
-FOREIGN KEY (fkLocal) REFERENCES localEstuda (idAquario));
- 
+FOREIGN KEY (fkLocal) REFERENCES localEstufa (idLocal));
+
+insert into localEstufa values
+('a', 1, '12345678', 2, 'aa');
+
+INSERT INTO medida (dht11_umidade, dht11_temperatura, momento, fkLocal) VALUES (1, 2, now(), 1);
+
+
+	
 SELECT * FROM empresa;
 SELECT * FROM usuario;
 SELECT * FROM localEstufa;
@@ -52,10 +66,13 @@ DESC usuario;
 DESC localEstufa;
 DESC sensor;
 DESC leitura;
-CREATE TABLE medida (
-idMedida INT PRIMARY KEY AUTO_INCREMENT,
-momento DATETIME,
-dht11_umidade DOUBLE,
-dht11_temperatura DOUBLE,
-fk_aquario INT, 
-FOREIGN KEY (fk_aquario) REFERENCES localEstuFa (idAquario));
+
+INSERT INTO medida (dht11_umidade, dht11_temperatura, luminosidade, lm35_temperatura, chave, momento, fk_aquario) VALUES (?, ?, ?, ?, ?, now(), 1);
+
+select 
+        dht11_temperatura as temperatura, 
+        dht11_umidade as umidade,
+                        DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico, 
+                        fkLocal
+                        from medida where fkLocal = 1
+                    order by id desc limit 7;
