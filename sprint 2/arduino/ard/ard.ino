@@ -93,6 +93,7 @@ Serial.print(lm35_temperatura);
 Serial.print(";");
 int chave = digitalRead(7);
 if (chave == 0) 
+delay (20000)
 { 
 Serial.print("1"); 
 } 

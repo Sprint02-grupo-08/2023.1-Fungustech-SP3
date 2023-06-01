@@ -24,6 +24,7 @@ function obterdados(idAquario) {
 
 function alertar(resposta, idAquario) {
     var temp = resposta[0].temperatura;
+    var umi = resposta[0].umidade
 
     console.log(idAquario === resposta[0].fk_aquario)
     
@@ -78,10 +79,10 @@ function alertar(resposta, idAquario) {
         temp_sens_2.innerHTML = temp + "°C";
         card = card_2
     } else if (idAquario == 3) {
-        temp_sens_3.innerHTML = temp + "°C";
+        temp_sens_3.innerHTML = umi + "°C";
         card = card_3
     } else if (idAquario == 4) {
-        temp_sens_4.innerHTML = temp + "°C";
+        temp_sens_4.innerHTML = umi + "°C";
         card = card_4
     }
 

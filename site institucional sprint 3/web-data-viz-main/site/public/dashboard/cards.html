@@ -123,9 +123,10 @@
 
                         var dados = {
                             temperatura: resposta[0].temperatura,
+                            umidade: resposta[0].umidade,
                         }
 
-                        alertar(resposta[0].temperatura, idAquario);
+                        alertar(resposta[0].temperatura, resposta[0].umidade, idAquario);
                     });
                 } else {
 
@@ -138,7 +139,7 @@
 
     }
 
-    function alertar(temperatura, idAquario) {
+    function alertar(temperatura, umidade, idAquario) {
         var limites = {
             muito_quente: 23,
             quente: 22,
@@ -175,6 +176,8 @@
         if (idAquario == 1) {
             temp_sens_1.innerHTML = temperatura + "°C";
             card = card_1
+            
+        temp_sens_3.innerHTML = umidade
         } else if (idAquario == 2) {
             temp_sens_2.innerHTML = temperatura + "°C";
             card = card_2
