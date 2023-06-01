@@ -1,5 +1,5 @@
 CREATE DATABASE fungustech;
-
+DROP DATABASE fungustech;
 USE fungustech;
 
 DROP TABLE empresa;
@@ -11,6 +11,7 @@ DROP TABLE leitura;
 CREATE TABLE empresa (
 idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(45),
+senha VARCHAR(45),
 CNPJ CHAR (14)) AUTO_INCREMENT = 01;
 
 CREATE TABLE usuario (
@@ -19,61 +20,42 @@ nome VARCHAR(45),
 email VARCHAR(45),
 senha VARCHAR(45),
 fkEmpresa INT,
-	CONSTRAINT fkEmp FOREIGN KEY (fkEmpresa)
-		REFERENCES empresa (idEmpresa),
-			CONSTRAINT idUsuario PRIMARY KEY (idUsuario, fkEmpresa));
-
-DROP TABLE usuario;
+ CONSTRAINT fkEmp FOREIGN KEY (fkEmpresa)
+  REFERENCES empresa (idEmpresa),
+   CONSTRAINT idUsuario PRIMARY KEY (idUsuario, fkEmpresa));
 
 CREATE TABLE localEstufa (
-idLocal INT PRIMARY KEY AUTO_INCREMENT,
-nome VARCHAR(45),
+idAquario INT PRIMARY KEY AUTO_INCREMENT,
 rua VARCHAR(45),
 numero INT,
 cep CHAR(8),
 andar INT,
 complemento VARCHAR(45),
 fkEmp INT,
-	CONSTRAINT fkEmpresa FOREIGN KEY (fkEmP)
-		REFERENCES empresa (idEmpresa)) AUTO_INCREMENT = 200;
-
-CREATE TABLE sensor (
-idSensor INT PRIMARY KEY AUTO_INCREMENT,
-nome VARCHAR(20)
-	CONSTRAINT chkNome 
-			CHECK (nome IN ('dht11','lm35')),
-tipo VARCHAR(20)
-	CONSTRAINT chkTipo 
-			CHECK (tipo IN ('umnidade','temperatura')),
-fkLocal INT,
-	CONSTRAINT fkLocal FOREIGN KEY (fkLocal)
-		REFERENCES localEstufa (idLocal)) AUTO_INCREMENT = 400;
+ CONSTRAINT fkEmpresa FOREIGN KEY (fkEmP)
+  REFERENCES empresa (idEmpresa));
         
-CREATE TABLE leitura (
-idLeitura INT AUTO_INCREMENT,
-dataHora DATETIME,
-temperatura DOUBLE,
-umidade DOUBLE,
-fkSensor INT,
-	CONSTRAINT fkSensor FOREIGN KEY (fkSensor)
-		REFERENCES sensor (idSensor),
-CONSTRAINT idLeitura PRIMARY KEY (idLeitura, fkSensor));
-	
+CREATE TABLE medida (
+idMedida INT PRIMARY KEY AUTO_INCREMENT,
+momento DATETIME,
+dht11_umidade DOUBLE,
+dht11_temperatura DOUBLE,
+fkLocal INT, 
+FOREIGN KEY (fkLocal) REFERENCES localEstuda (idAquario));
+ 
 SELECT * FROM empresa;
 SELECT * FROM usuario;
 SELECT * FROM localEstufa;
-SELECT * FROM sensor;
-SELECT * FROM leitura;
+SELECT * FROM medida;
 DESC empresa;
 DESC usuario;
 DESC localEstufa;
 DESC sensor;
 DESC leitura;
-
-
-
-
-
-
-	
-            
+CREATE TABLE medida (
+idMedida INT PRIMARY KEY AUTO_INCREMENT,
+momento DATETIME,
+dht11_umidade DOUBLE,
+dht11_temperatura DOUBLE,
+fk_aquario INT, 
+FOREIGN KEY (fk_aquario) REFERENCES localEstuFa (idAquario));
