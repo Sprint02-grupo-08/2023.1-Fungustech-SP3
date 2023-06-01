@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FungusTech | Tempo Real</title>
 
-    <link rel="stylesheet" href="./css/style2.css">
-    <link rel="stylesheet" href="./css/Dashboard.css">
+    <link rel="stylesheet" href="./css/fungi.css">
+    <link rel="stylesheet" href="./dashboard/dashboards.css">
 
     <script src="../js/funcoes.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -20,14 +20,24 @@
 
 <body >
 
-    <div class="janela">
-
         <div class="dash">
 
             <div class="header">
                 <div class="container">
-                    <a href="index.html"><button>Sair</button></a>
 
+                    <div class="hello">
+                        <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+                    </div>
+                    <a href="./index.html"><button>Sair</button></a>
+                    
+            
+                    <select name="unidade" id="unidade" onChange="AbrirSecao(this.value)">
+                        <option value="">Estufas</option>
+                        <option value="./Dashboard.html">Estufa 1</option>
+                        <option value="./Dashboard.html">Estufa 2</option>
+                    </select>
+                    
+                    <a href="./dashboard/cards.html"><button>Cards</button></a>
                     <span><img src="./imgs/logo.png" alt=""></span>
                 </div>
             </div>
@@ -37,14 +47,20 @@
                     <h1>Cadastre o local da sua estufa</h1>
                    
                     <div class="temperatura">
-                        Rua: <input type="text" name="" id="input_rua"><br>
-                        CEP: <input type="text" id="input_cep"><br>
-                        número: <input type="number" name="" id="input_numero"><br>
-                        andar: <input type="number" name="" id="input_andar"><br>
-                        complemento: <input type="number" name="" id="input_complemento">
-                        <button onclick="salvar()">Salvar</button>
+                        <div id="endereco">
+                            <input type="text" id="input_nome" placeholder="Nome do local">
+                        </div>
+                       <div id="endereco">
+                            <input type="text" name="" id="input_rua" placeholder="Endereço">
+                            <input type="number" name="" id="input_numero" placeholder="Numero">
+                       </div>
+                        <div class="endereco">
+                            <input type="text" id="input_cep" placeholder="CEP">
+                            <input type="number" name="" id="input_andar" placeholder="Andar">
+                            <input type="text" name="" id="input_complemento" placeholder="complemento">
+                        </div>
                     </div>
-                    <div class="cor-alerta" id="card_1"></div>
+                    <button onclick="salvar()">Salvar</button>
                 </div>
 
 
@@ -121,5 +137,8 @@ var fkEmpresa = sessionStorage.getItem('ID_EMPRESA')
         }
 }
      
+    function AbrirSecao(secao){
+                window.open(""+secao+"", "_parent");
+    }
 
 </script>
