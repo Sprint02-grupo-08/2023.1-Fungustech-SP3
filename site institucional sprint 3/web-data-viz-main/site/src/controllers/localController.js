@@ -62,6 +62,7 @@ function entrar(req, res) {
 
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var nome = req.body.nomeServer;
     var rua = req.body.ruaServer;
     var cep = req.body.cepServer;
     var numero = req.body.numeroServer;
@@ -70,22 +71,24 @@ function cadastrar(req, res) {
     var fkEmp = req.body.fkEmpresaServer;
 
     // Faça as validações dos valores
-    if (cep == undefined) {
+    if (nome == undefined) {
+        res.status(400).send("Seu nome está undefined!");
+    } else if (cep == undefined) {
         res.status(400).send("Seu cep está undefined!");
     } else if (rua == undefined) {
-        res.status(400).send("Seu numero está undefined!");
+        res.status(400).send("Seu rua está undefined!");
     } else if (numero == undefined) {
         res.status(400).send("Seu numero está undefined!");
     } else if (andar == undefined) {
-        res.status(400).send("Seu numero está undefined!");
+        res.status(400).send("Seu nuandarmero está undefined!");
     } else if (complemento == undefined) {
-        res.status(400).send("Seu numero está undefined!");
+        res.status(400).send("Seu complemento está undefined!");
     } else if (fkEmp == undefined) {
         res.status(400).send("Sua fkEmpresa está undefined!");
     } else {
         
         // Passe os valores como parâmetro e vá para o arquivo localModel.js
-        localModel.cadastrar(rua, cep, numero, andar, complemento, fkEmp)
+        localModel.cadastrar(nome, rua, cep, numero, andar, complemento, fkEmp)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -103,9 +106,29 @@ function cadastrar(req, res) {
     }
 }
 
+function buscarEstufas(req, res){
+
+        var idEmpresa = req.params.idEmpresa;
+    
+        console.log(`Recuperando medidas em tempo real`);
+    
+        localModel.buscarEstufas(idEmpresa).then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+            console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
-    testar
+    testar,
+    buscarEstufas
 }

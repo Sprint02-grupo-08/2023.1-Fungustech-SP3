@@ -136,15 +136,15 @@
         obterdados(3);
         obterdados(4);
 
-        function sendData() {
-            var http = new XMLHttpRequest();
-            http.open('POST', 'http://localhost:3000/api/sendData', false);
-            http.send(null);
-        }
+        // function sendData() {
+        //     var http = new XMLHttpRequest();
+        //     http.open('POST', 'http://localhost:3000/api/sendData', false);
 
-        setInterval(() => {
-            sendData();
-        }, 2000);
+        // }
+
+        // setInterval(() => {
+        //     sendData();
+        // }, 2000);
         setTimeout(atualizacaoPeriodica, 5000);
     }
 
