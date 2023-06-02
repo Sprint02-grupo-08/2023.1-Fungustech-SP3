@@ -32,10 +32,10 @@ const serial = async (
             {
                 // altere!
                 // CREDENCIAIS DO BANCO - MYSQL WORKBENCH
-                host: 'localhost',
-                user: 'aluno',
-                password: 'sptech',
-                database: 'fungustech'
+                host: "localhost",
+                user: "root",
+                password: "sptech",
+                database: "fungustech"
             }
         ).promise();
     } else if (AMBIENTE == 'producao') {

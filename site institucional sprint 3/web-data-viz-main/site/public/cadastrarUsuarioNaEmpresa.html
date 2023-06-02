@@ -104,7 +104,7 @@
         } 
     }).catch(function (erro) {
         console.log(erro);
-        Swal.fire('LOGIN INVÁLIDO')
+        Swal.fire('É PRECISO LOGAR PARA CADASTRAR UM EMAIL')
     })
 
     function salvar() {
@@ -141,11 +141,13 @@
                         }, 2000); // 
 
                     })
+                } else {
+                    Swal.fire('EMAIL DE USUÁRIO JÁ CADASTRADO')
                 }
+
             }).catch(function (erro) {
                 console.log(erro);
-                cardErro.style.display = "block"
-                Swal.fire('ESSE EMAIL JÁ FOI CADASTRADO')
+                
             })
         }
     }
