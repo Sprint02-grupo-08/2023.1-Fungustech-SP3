@@ -155,13 +155,11 @@
                     // sessionStorage.fk_EMPRESA = json.fkEmpresa;
                     // SALVANDO FK EMPRESA COMO 1 SO PARA TESTE NO CADASTRO DO LOCAL, ENQUANTO NAO RESOLVEMOS O PROBLEMA DE LISTAR AS EMPRESAS NO CADASTRO DE USUARIO
 
-                    cardErro.style.display = "block";
-
-                mensagem_erro.innerHTML = "Login realizado com sucesso! Redirecionando para tela de Login...";
+                    Swal.fire('LOGIN REALIZADO COM SUCESSO')
 
                     setTimeout(function () {
                         window.location = "cadastrarLocal.html";
-                    }, 1000); // 
+                    }, 2000); // 
 
                 });
 

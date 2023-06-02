@@ -104,15 +104,14 @@
         } 
     }).catch(function (erro) {
         console.log(erro);
-        cardErro.style.display = "block"
-        mensagem_erro.innerHTML = "O Login está inválido";
+        Swal.fire('LOGIN INVÁLIDO')
     })
 
     function salvar() {
         var email = input_email.value;
         if (email == "" || idEmpresa == "") {
 
-            mensagem_erro.innerHTML = "Os campos precisam ser preenchidos";
+            Swal.fire('OS CAMPOS PRECISAM SER PREENCHIDOS')
 
         }
         else {
@@ -135,20 +134,18 @@
                         console.log(json);
                         console.log(JSON.stringify(json))
 
-                        //     cardErro.style.display = "block";
-
-                        // mensagem_erro.innerHTML = "Login realizado com sucesso! Redirecionando para tela de Login...";
+                        Swal.fire('EMAIL DE USUÁRIO CADASTRADO')
 
                         setTimeout(function () {
                             location.reload();
-                        }, 1000); // 
+                        }, 2000); // 
 
                     })
                 }
             }).catch(function (erro) {
                 console.log(erro);
                 cardErro.style.display = "block"
-                mensagem_erro.innerHTML = "Esse email ja foi cadastrado";
+                Swal.fire('ESSE EMAIL JÁ FOI CADASTRADO')
             })
         }
     }

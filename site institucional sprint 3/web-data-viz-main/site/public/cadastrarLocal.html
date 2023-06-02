@@ -70,7 +70,7 @@
     </div>
 
 </body>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
 <script>
 
 function salvar(){
@@ -84,13 +84,15 @@ var fkEmpresa = sessionStorage.getItem('ID_EMPRESA')
 
     if (cep == "" || numero == "" || fkEmpresa == '' || complemento == '' || andar == "" || rua == "") {
 
-            mensagem_erro.innerHTML = "Os campos precisam ser preenchidos";
+        Swal.fire('TODOS OS CAMPOS PRECISAM SER PREENCHIDOS')
 
         } else {
             fetch("/local/cadastrar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
+            
+                
             },
             body: JSON.stringify({
                 ruaServer: rua,
@@ -109,11 +111,7 @@ var fkEmpresa = sessionStorage.getItem('ID_EMPRESA')
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json))
-
-                //     cardErro.style.display = "block";
-
-                // mensagem_erro.innerHTML = "Login realizado com sucesso! Redirecionando para tela de Login...";
-
+                    
                     setTimeout(function () {
                         window.location.href = "dashboard.html";
                     }, 1000); // 
@@ -133,8 +131,7 @@ var fkEmpresa = sessionStorage.getItem('ID_EMPRESA')
 
         }).catch(function (erro) {
             console.log(erro);
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "O Login está inválido";
+            Swal.fire('ERRO AO CADASTRAR LOCAL')
         })          
         }
 }
