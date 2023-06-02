@@ -196,29 +196,55 @@ button {
 .perigo-frio {
   background-color: rgb(243, 18, 18);
 }
+.perigo-frio:hover{
+  transform: scale(1.1);
+    transition: all 0.3s;
+}
 
 .perigo-quente {
   background-color: rgb(243, 18, 18);
+}
+.perigo-quente:hover{
+  transform: scale(1.1);
+    transition: all 0.3s;
 }
 
 .emergencia-quente {
   background-color: #ff5927;
 }
-
+.emergencia-quente:hover{
+  transform: scale(1.1);
+  transition: all 0.3s;
+}
 .emergencia-frio {
   background-color: #ff5927;
+}
+.emergencia-frio:hover{
+  transform: scale(1.1);
+  transition: all 0.3s;
 }
 
 .alerta-frio {
   background-color: #ffee58;
 }
-
+.alerta-frio:hover{
+  transform: scale(1.1);
+  transition: all 0.3s;
+}
 .alerta-quente {
   background-color: #ffee58;
 }
 
+.alerta-quente:hover{
+  transform: scale(1.1);
+  transition: all 0.3s;
+}
 .ideal {
   background-color: #9ccc65;
+}
+.ideal:hover{
+  transform: scale(1.1);
+  transition: all 0.3s;
 }
 
 /*NOVO
