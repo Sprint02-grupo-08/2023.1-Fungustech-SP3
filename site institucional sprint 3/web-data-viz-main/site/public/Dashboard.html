@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AquaTech | Dashboards</title>
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/Dashboard.css">
+    <link rel="stylesheet" href="css/fungi.css">
+    <link rel="stylesheet" href="./dashboard/dashboards.css">
     <script src="alerta.js"></script>
     <script src="../js/funcoes.js"></script>
 
@@ -31,22 +31,24 @@
         <div class="hello">
             <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
         </div>
-
-        <a href="../index.html"><button>Sair</button></a>
+        <ul class="navBar">
+            <li><a href="./dashboard/cards.html">Cards</a></li>
+            <li ><a href="./cadastrarLocal.html">Cadastrar Estufa</a></li>
+        </ul>
         <select name="unidade" id="unidade" onChange="AbrirSecao(this.value)">
             <option value="">Estufas</option>
-            <option value="../public/graficos.html">Estufa 1</option>
-            <option value="../public/graficos.html">Estufa 2</option>
+            <option value="../Dashboard.html">Estufa 1</option>
+            <option value="../Dashboard.html">Estufa 2</option>
         </select>
-
+        
+        <a href="../index.html"><button>Sair</button></a>
         <h1><img src="../imgs/logo.png" alt=""></h1>
     </div>
 
-    <div class="dash">
         <div id="alerta">
         </div>
 
-    <div class="janela">
+    <div class="fundo-janela">
 
         <div id="grafico1" class="display-block">
             <h3 class="tituloGraficos">
