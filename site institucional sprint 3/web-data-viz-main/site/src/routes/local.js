@@ -20,4 +20,9 @@ router.post("/autenticar", function (req, res) {
     localController.entrar(req, res);
 });
 
+router.get("/buscar/:idEmpresa", function (req, res) {
+    localController.buscarEstufas(req, res);
+})
+
+
 module.exports = router;
