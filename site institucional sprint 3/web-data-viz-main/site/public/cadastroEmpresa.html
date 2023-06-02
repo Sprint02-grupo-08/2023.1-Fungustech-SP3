@@ -80,7 +80,7 @@
 </body>
 
 </html>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
 <script>
     function cadastrar () {
         var nome = name_input.value
@@ -91,18 +91,14 @@
         
 
     if (nome == ""||cnpj == '' || senha == "" || confirmeSenha == "" ) {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "Os campos precisam ser preenchidos";
-            setInterval(sumirMensagem,5000)
+        Swal.fire('OS CAMPOS PRECISAM SER PREENCHIDOS')
 
         } else if(checkbox.checked == false) {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "O termo de uso precisa ser assinado";
-            setInterval(sumirMensagem,5000)
+            Swal.fire('O TERMO DE USO PRECISA SER ASSINADO')
         } else if (senha.length < 6) {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "A senha precisa ter mais que 6 caracteres";
-            setInterval(sumirMensagem,5000)
+            Swal.fire('A SENHA PRECISA TER MAIS DE 6 CARACTERES')
+        } else if (senha != confirmeSenha) {
+            Swal.fire('SENHAS DIFERENTES')
         }  else {
          
             fetch("/empresa/cadastrar", {
@@ -124,9 +120,8 @@
 
             if (resposta.ok) {
                 console.log(resposta)
-                cardErro.style.display = "block";
 
-                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+            Swal.fire('EMPRESA CADASTRADA COM SUCESSO')
 
                 setTimeout(() => {
                     window.location = "login.html";

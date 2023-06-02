@@ -108,7 +108,7 @@
             <div class="card">
                 <h1>Estufas - Analise de Temperatura Geral</h1>
                 <div class="temperatura">
-                    <p id="temp_sens_1">-°C</p>
+                   <p id="temp_sens_1">-°C</p>
                     <div class="classe_temperatura" id="card_1"></div>
                 </div>
             </div>
@@ -116,7 +116,7 @@
             <div class="card">
                 <h1>Estufas - Analise de Umidade Geral</h1>
                 <div class="temperatura">
-                    <p id="temp_sens_3">-°C</p>
+                    <p id="temp_sens_3">%</p>
                 </div>
                 <div style="width: 40%; display: flex; justify-content: end;">
                     <div class="classe_temperaturau" id="card_3"></div>
@@ -136,15 +136,15 @@
         obterdados(3);
         obterdados(4);
 
-        function sendData() {
-            var http = new XMLHttpRequest();
-            http.open('POST', 'http://localhost:3000/api/sendData', false);
-            http.send(null);
-        }
+        // function sendData() {
+        //     var http = new XMLHttpRequest();
+        //     http.open('POST', 'http://localhost:3000/api/sendData', false);
+        //     http.send(null);
+        // }
 
-        setInterval(() => {
-            sendData();
-        }, 2000);
+        // setInterval(() => {
+        //     sendData();
+        // }, 2000);
         setTimeout(atualizacaoPeriodica, 5000);
     }
 
@@ -177,21 +177,21 @@
 
     function alertar(temperatura, umidade, idAquario) {
         var limites = {
-            muito_quente: 23,
-            quente: 22,
-            ideal: 20,
-            frio: 10,
-            muito_frio: 5
+            muito_quente: 32,
+            quente: 28,
+            ideal: 22,
+            frio: 20,
+            muito_frio: 16
         };
         var limitesu = {
-            muito_umido: 23,
-            umido: 22,
-            ideal: 20,
-            seco: 10,
-            muito_seco: 5
+            muito_umido: 99,
+            umido: 95,
+            ideal: 90,
+            seco: 80,
+            muito_seco: 75
         };
         var classe_temperatura = 'cor-alerta';
-        var classe_temperaturau = 'cor-alertau';
+        var classe_temperaturau = 'cor-alerta';
 
         if (temperatura >= limites.muito_quente) {
             classe_temperatura = 'cor-alerta perigo-quente';
@@ -215,23 +215,23 @@
         }
         //novo 
         if (umidade >= limitesu.muito_umido) {
-            classe_temperaturau = 'cor-alerta perigo-umido  ';
+            classe_temperaturau = 'cor-alerta perigo-quente';
             console.log("caiu no 1")
         }
         else if (umidade < limitesu.muito_umido && umidade >= limitesu.umido) {
-            classe_temperaturau = 'cor-alerta alerta-umido';
+            classe_temperaturau = 'cor-alerta alerta-quente';
             console.log("caiu no 2")
         }
         else if (umidade < limitesu.umido && umidade > limitesu.seco) {
-            classe_temperaturau = 'cor-alerta ideal-umidade';
+            classe_temperaturau = 'cor-alerta ideal';
             console.log("caiu no 3")
         }
         else if (umidade <= limitesu.seco && umidade > limitesu.muito_seco) {
-            classe_temperaturau = 'cor-alerta alerta-seco';
+            classe_temperaturau = 'cor-alerta alerta-quente';
             console.log("caiu no 4")
         }
         else if (umidade < limitesu.muito_seco) {
-            classe_temperaturau = 'cor-alerta perigo-seco';
+            classe_temperaturau = 'cor-alerta perigo-quente';
             console.log("caiu no 5")
         }
 
@@ -241,7 +241,7 @@
             temp_sens_1.innerHTML = temperatura + "°C";
             card = card_1
             
-        temp_sens_3.innerHTML = umidade
+        temp_sens_3.innerHTML = umidade + "%"
         } else if (idAquario == 2) {
             temp_sens_2.innerHTML = temperatura + "°C";
             card = card_2

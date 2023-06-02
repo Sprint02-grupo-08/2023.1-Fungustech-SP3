@@ -86,7 +86,7 @@
 </body>
 
 </html>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
 <script>
        var empresas;
      fetch("/empresa/listar", {
@@ -147,22 +147,14 @@ for (let i = 0; i < empresas.length; i++) {
             console.log(email)
             if(empresaCadastrada === true){
                 if (nome == ""|| email ==  "" || senha == "" || confirmeSenha == "" ) {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "Os campos precisam ser preenchidos";
-            setInterval(sumirMensagem,5000)
+                    Swal.fire('OS CAMPOS PRECISAM SER PREENCHIDOS')
 
         } else if(checkbox.checked == false) {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "O termo de uso precisa ser assinado";
-            setInterval(sumirMensagem,5000)
+            Swal.fire('O TERMO DE USO PRECISA SER ASSINADO')
         }else if (email.indexOf('@') < 0) {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "O e-mail está com o formato inválido";
-            setInterval(sumirMensagem, 5000)
+            Swal.fire('EMAIL ESTÁ NO FORMATO INVÁLIDO')
         } else if (senha.length < 6) {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "A senha precisa ter mais que 6 caracteres";
-            setInterval(sumirMensagem,5000)
+            Swal.fire('SENHA PRECISA TER MAIS DE 6 CARACTERES')
         }  else { 
             fetch("/usuarios/cadastrar", {
             method: "POST",
@@ -182,9 +174,8 @@ for (let i = 0; i < empresas.length; i++) {
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                cardErro.style.display = "block";
 
-                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+                Swal.fire('USURIO CADASTRADO COM SUCESSO')
 
                 setTimeout(() => {
                     window.location = "login.html";
