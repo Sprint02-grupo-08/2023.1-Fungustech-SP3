@@ -20,7 +20,7 @@
         rel="stylesheet">
 </head>
 
-<body onload="validarSessao(), atualizacaoPeriodica()">
+<body onload="validarSessao(), VerificarUsuarioOuEmpresa(), atualizacaoPeriodica()">
 
     <div class="header-left">
         <div class="hello">
@@ -28,8 +28,8 @@
         </div>
         <ul class="navBar">
             <li><a href="./cards.html">Cards</a></li>
-            <li ><a href="../cadastrarLocal.html">Cadastrar Estufa</a></li>
-            <li><a href="./cadastrarUsuarioNaEmpresa.html">Cadastrar Usuario</a></li>
+            <li id="cadastrar_local_estufa"><a href="../cadastrarLocal.html">Cadastrar Estufa</a></li>
+            <li id="cadastrar_usuario_empresa"><a href="../cadastrarUsuarioNaEmpresa.html">Cadastrar Usuario</a></li>
         </ul>
         <select name="unidade" id="unidade" onChange="AbrirSecao(this.value)">
             <option value="">Estufas</option>
@@ -97,7 +97,8 @@
 </body>
 
 <script>
-
+    
+    console.log(usuario)
     function atualizacaoPeriodica() {
         obterdados(1);
         obterdados(2);

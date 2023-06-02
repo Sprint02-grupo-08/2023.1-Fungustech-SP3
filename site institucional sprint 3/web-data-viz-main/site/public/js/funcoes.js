@@ -1,4 +1,18 @@
 // sessão
+function VerificarUsuarioOuEmpresa(){
+    var usuario = sessionStorage.getItem("ID_USUARIO")
+    if(usuario){
+        console.log("tem usuario")
+        cadastrar_usuario_empresa.style = "display: none"
+        cadastrar_local_estufa.style = "display: none"
+    } else {
+        console.log("nao tem usuario")
+        cadastrar_usuario_empresa.style = "display: block"
+        cadastrar_local_estufa.style = "display: block"
+    }
+    
+}
+
 function validarSessao() {
     // aguardar();
 
