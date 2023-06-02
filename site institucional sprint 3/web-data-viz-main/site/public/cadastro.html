@@ -131,8 +131,22 @@ for (let i = 0; i < empresas.length; i++) {
         var confirmeSenha = confirmacaoSenha_input.value
         var idEmpresa = empresasSelect.value
         
+        fetch(`/funcionario/verificar/${idEmpresa}`)
+    .then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!")
 
-    if (nome == ""|| email ==  "" || senha == "" || confirmeSenha == "" ) {
+        if (resposta.ok) {
+            console.log(resposta);
+
+            resposta.json().then(json => {
+                console.log(json);
+                var empresaCadastrada = json.some(objeto => {
+                return objeto.email === email
+            })
+            console.log(empresaCadastrada)
+            console.log(email)
+            if(empresaCadastrada === true){
+                if (nome == ""|| email ==  "" || senha == "" || confirmeSenha == "" ) {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "Os campos precisam ser preenchidos";
             setInterval(sumirMensagem,5000)
@@ -149,8 +163,7 @@ for (let i = 0; i < empresas.length; i++) {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "A senha precisa ter mais que 6 caracteres";
             setInterval(sumirMensagem,5000)
-        }  else {
-            window.location = "./login.html"
+        }  else { 
             fetch("/usuarios/cadastrar", {
             method: "POST",
             headers: {
@@ -185,7 +198,20 @@ for (let i = 0; i < empresas.length; i++) {
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
         });
-    }
+        }
+            } else {
+                cardErro.style.display = "block"
+        mensagem_erro.innerHTML = "O e-mail não foi cadastrado pela empresa";
+            }   
+
+            });
+
+        } 
+    }).catch(function (erro) {
+    
+  
+    })
+
     function sumirMensagem() {
         cardErro.style.display = "none"
     }

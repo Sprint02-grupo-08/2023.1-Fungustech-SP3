@@ -12,7 +12,7 @@ CREATE TABLE empresa (
 idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(45),
 senha VARCHAR(45),
-CNPJ CHAR (14)) AUTO_INCREMENT = 01;
+CNPJ VARCHAR (45)) AUTO_INCREMENT = 01;
 
 insert into empresa values 
 (null, 'sptech', '123', '1234567891234');
@@ -50,13 +50,21 @@ dht11_temperatura decimal (10, 2),
 fkLocal INT, 
 FOREIGN KEY (fkLocal) REFERENCES localEstufa (idLocal));
 
+CREATE TABLE funcionario (
+idFuncionario INT AUTO_INCREMENT, 
+email VARCHAR(45) UNIQUE, 
+fkEmpresa INT,
+ CONSTRAINT fkEmpre FOREIGN KEY (fkEmpresa)
+  REFERENCES empresa (idEmpresa),
+   CONSTRAINT idUsuario PRIMARY KEY (idFuncionario, fkEmpresa)
+);
+
 insert into localEstufa values
 ('a', 1, '12345678', 2, 'aa');
 
 INSERT INTO medida (dht11_umidade, dht11_temperatura, momento, fkLocal) VALUES (1, 2, now(), 1);
 
-
-	
+SELECT * FROM funcionario;
 SELECT * FROM empresa;
 SELECT * FROM usuario;
 SELECT * FROM localEstufa;

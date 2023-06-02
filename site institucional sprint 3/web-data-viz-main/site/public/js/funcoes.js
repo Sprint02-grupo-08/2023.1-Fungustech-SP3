@@ -5,9 +5,13 @@ function validarSessao() {
     var email = sessionStorage.EMAIL_USUARIO;
     var nome = sessionStorage.NOME_USUARIO;
 
+    if(nome === undefined){
+        nome = sessionStorage.NOME_EMPRESA
+    }
+
     var b_usuario = document.getElementById("b_usuario");
 
-    if (email != null && nome != null) {
+    if (email !== null && nome !== null) {
         // window.alert(`Seja bem-vindo, ${nome}!`);
         b_usuario.innerHTML = nome;
 
@@ -53,3 +57,12 @@ function fecharModal() {
     divModal.style.display = "none";
 }
 
+function sair(){
+    sessionStorage.removeItem('ID_USUARIO');
+    sessionStorage.removeItem('fk_EMPRESA');
+    sessionStorage.removeItem('NOME_USUARIO');
+    sessionStorage.removeItem('EMAIL_USUARIO');
+    sessionStorage.removeItem('CNPJ_EMPRESA');
+    sessionStorage.removeItem('NOME_EMPRESA');
+    sessionStorage.removeItem('ID_EMPRESA');
+}
