@@ -23,6 +23,16 @@ body {
   background-color: #692b2e;
 }
 
+.navBar {
+  width: 400px;
+  display: flex;
+  list-style: none;
+  color: #692b2e;
+  justify-content: space-between;
+  font-size: 17px;
+  padding: 40px 40px 40px 40px;
+}
+
 .dash-right {
   display: flex;
   width: 80%;
@@ -221,6 +231,39 @@ button {
   background-color: #9ccc65;
 }
 
+/*NOVO
+*/
+
+.perigo-seco {
+  background-color: rgb(243, 18, 18);
+}
+
+.perigo-umido {
+  background-color: rgb(243, 18, 18);
+}
+
+.emergencia-umido {
+  background-color: #ff5927;
+}
+
+.emergencia-seco {
+  background-color: #ff5927;
+}
+
+.alerta-seco {
+  background-color: #ffee58;
+}
+
+.alerta-umido {
+  background-color: #ffee58;
+}
+
+.ideal-umidade {
+  background-color: #9ccc65;
+}
+
+
+
 .item-regua {
   padding: 5px;
   width: 15%;
@@ -257,6 +300,13 @@ button {
   text-align: left;
 }
 
+.card span {
+  margin: 0;
+  font-size: 25px;
+  font-weight: lighter;
+  text-align: left;
+}
+
 .cards h1 {
   font-size: 22px;
   width: 100%;
@@ -278,6 +328,13 @@ button {
 }
 
 .cor-alerta {
+  width: 13%;
+  height: 30%;
+  border-radius: 50px;
+  margin-top: 6%;
+  /* background-color: #c7c7c7; */
+}
+.cor-alertau {
   width: 13%;
   height: 30%;
   border-radius: 50px;
