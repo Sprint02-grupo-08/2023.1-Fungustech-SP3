@@ -206,89 +206,30 @@ button {
 .perigo-frio {
   background-color: rgb(243, 18, 18);
 }
-.perigo-frio:hover{
-  transform: scale(1.1);
-    transition: all 0.3s;
-}
 
 .perigo-quente {
   background-color: rgb(243, 18, 18);
-}
-.perigo-quente:hover{
-  transform: scale(1.1);
-    transition: all 0.3s;
 }
 
 .emergencia-quente {
   background-color: #ff5927;
 }
-.emergencia-quente:hover{
-  transform: scale(1.1);
-  transition: all 0.3s;
-}
+
 .emergencia-frio {
   background-color: #ff5927;
-}
-.emergencia-frio:hover{
-  transform: scale(1.1);
-  transition: all 0.3s;
 }
 
 .alerta-frio {
   background-color: #ffee58;
 }
-.alerta-frio:hover{
-  transform: scale(1.1);
-  transition: all 0.3s;
-}
+
 .alerta-quente {
   background-color: #ffee58;
 }
 
-.alerta-quente:hover{
-  transform: scale(1.1);
-  transition: all 0.3s;
-}
 .ideal {
   background-color: #9ccc65;
 }
-.ideal:hover{
-  transform: scale(1.1);
-  transition: all 0.3s;
-}
-
-/*NOVO
-*/
-
-.perigo-seco {
-  background-color: rgb(243, 18, 18);
-}
-
-.perigo-umido {
-  background-color: rgb(243, 18, 18);
-}
-
-.emergencia-umido {
-  background-color: #ff5927;
-}
-
-.emergencia-seco {
-  background-color: #ff5927;
-}
-
-.alerta-seco {
-  background-color: #ffee58;
-}
-
-.alerta-umido {
-  background-color: #ffee58;
-}
-
-.ideal-umidade {
-  background-color: #9ccc65;
-}
-
-
 
 .item-regua {
   padding: 5px;
@@ -353,7 +294,7 @@ button {
   justify-content: space-evenly;
 }
 
-.cor-alerta {
+.sens-alerta {
   width: 13%;
   height: 30%;
   border-radius: 50px;
@@ -475,8 +416,20 @@ input {
 
 #temp_sens_1 {
   color: #fff;
+  border-radius: 20px;
+  height: 80px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #temp_sens_3 {
   color: #fff;
+  border-radius: 20px;
+  height: 80px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
