@@ -205,30 +205,172 @@ button {
 
 .perigo-frio {
   background-color: rgb(243, 18, 18);
+  position: relative;
+  transition: all 0.3s ease;
 }
-
+.perigo-frio:hover{
+  width: 300px;
+  height: 100px;
+}
+.perigo-frio::after{
+  content: "Verifique imediatamente as estufas!";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80%;
+  background-color: #ffffff00;
+  padding: 10px;
+  display: none;
+  transition: all 0.3s ease;
+}
+.perigo-frio:hover::after{
+  display: block;
+}
 .perigo-quente {
   background-color: rgb(243, 18, 18);
+  position: relative;
+  transition: all 0.3s ease;
+}
+.perigo-quente:hover{
+  width: 300px;
+  height: 100px;
+}
+.perigo-quente::after{
+  content: "Verifique imediatamente as estufas !";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80%;
+  background-color: #ffffff00;
+  padding: 10px;
+  display: none;
+  transition: all 0.3s ease;
+}
+.perigo-quente:hover::after{
+  display: block;
 }
 
 .emergencia-quente {
   background-color: #ff5927;
+  position: relative;
+  transition: all 0.3s ease;
 }
+.emergencia-quente:hover{
+  width: 300px;
+  height: 100px;
 
+}
+.emergencia-quente::after{
+  content: "Verifique imediatamente as estufas !";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80%;
+  background-color: #ffffff00;
+  padding: 10px;
+  display: none;
+  transition: all 0.3s ease;
+}
+.emergencia-quente:hover::after{
+  display: block;
+}
 .emergencia-frio {
   background-color: #ff5927;
+  position: relative;
+  transition: all 0.3s ease;
 }
+.emergencia-frio:hover{
+  width: 300px;
+  height: 100px;
 
+}
+.emergencia-frio::after{
+  content: "Sua estufa corre perigo !!";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80%;
+  background-color: #ffffff00;
+  padding: 10px;
+  display: none;
+  transition: all 0.3s ease;
+}
+.emergencia-frio:hover::after{
+  display: block;
+}
 .alerta-frio {
   background-color: #ffee58;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.alerta-frio:hover{
+  width: 300px;
+  
+}
+.alerta-frio::after{
+  content: "Atenção, tem algo errado !";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80%;
+  background-color: #ffffff00;
+  padding: 10px;
+  display: none;
+  transition: all 0.3s ease;
+}
+.alerta-frio:hover::after{
+  display: block;
 }
 
 .alerta-quente {
   background-color: #ffee58;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.alerta-quente:hover{
+  width: 300px;
+  height: 100px;
+  
+}
+.alerta-quente::after{
+  content: "Atenção, tem algo errado !";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60%;
+  background-color: #ffffff00;
+  padding: 10px;
+  display: none;
+  transition: all 0.3s ease;
+}
+.alerta-quente:hover::after{
+  display: block;
 }
 
 .ideal {
   background-color: #9ccc65;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.ideal:hover{
+  width: 300px;
+  height: 100px;
+
+  
+}
+.ideal::after{
+  content: "Esta tudo nos OK!";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80%;
+  background-color: #ffffff00;
+  padding: 10px;
+  display: none;
+  transition: all 0.3s ease;
+}
+.ideal:hover::after{
+  display: block;
 }
 
 .item-regua {
