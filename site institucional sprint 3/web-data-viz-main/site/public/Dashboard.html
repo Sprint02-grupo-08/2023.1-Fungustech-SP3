@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/fungi.css">
     <link rel="stylesheet" href="./dashboard/dashboards.css">
     <script src="alerta.js"></script>
-    <script src="../js/funcoes.js"></script>
+    <script src="js/funcoes.js"></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
@@ -25,7 +25,7 @@
     <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script>
 </head>
 
-<body onload="validarSessao(), atualizarFeed()">
+<body onload="validarSessao(), VerificarUsuarioOuEmpresa(), atualizarFeed()">
 
     <div class="header-left">
         <div class="hello">
@@ -33,7 +33,8 @@
         </div>
         <ul class="navBar">
             <li><a href="./dashboard/cards.html">Cards</a></li>
-            <li ><a href="./cadastrarLocal.html">Cadastrar Estufa</a></li>
+            <li id="cadastrar_local_estufa"><a href="./cadastrarLocal.html">Cadastrar Estufa</a></li>
+            <li id="cadastrar_usuario_empresa"><a href="../cadastrarUsuarioNaEmpresa.html">Cadastrar Usuario</a></li>
         </ul>
         <select name="unidade" id="unidade" onChange="AbrirSecao(this.value)">
             <option value="">Estufas</option>
@@ -105,6 +106,16 @@
 </html>
 
 <script>
+     var usuario = sessionStorage.getItem("ID_USUARIO")
+    if(usuario){
+        console.log("tem usuario")
+        cadastrar_usuario_empresa.style = "display: none"
+        cadastrar_local_estufa.style = "display: none"
+    } else {
+        console.log("nao tem usuario")
+        cadastrar_usuario_empresa.style = "display: block"
+        cadastrar_local_estufa.style = "display: block"
+    }
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     let proximaAtualizacao;
