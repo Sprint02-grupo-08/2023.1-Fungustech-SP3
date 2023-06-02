@@ -23,6 +23,16 @@ body {
   background-color: #692b2e;
 }
 
+.navBar {
+  width: 400px;
+  display: flex;
+  list-style: none;
+  color: #692b2e;
+  justify-content: space-between;
+  font-size: 17px;
+  padding: 40px 40px 40px 40px;
+}
+
 .dash-right {
   display: flex;
   width: 80%;
@@ -312,6 +322,13 @@ button {
 .card p {
   margin: 0;
   font-size: 50px;
+  font-weight: lighter;
+  text-align: left;
+}
+
+.card span {
+  margin: 0;
+  font-size: 25px;
   font-weight: lighter;
   text-align: left;
 }
