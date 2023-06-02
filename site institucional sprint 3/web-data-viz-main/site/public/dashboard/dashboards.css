@@ -231,6 +231,39 @@ button {
   background-color: #9ccc65;
 }
 
+/*NOVO
+*/
+
+.perigo-seco {
+  background-color: rgb(243, 18, 18);
+}
+
+.perigo-umido {
+  background-color: rgb(243, 18, 18);
+}
+
+.emergencia-umido {
+  background-color: #ff5927;
+}
+
+.emergencia-seco {
+  background-color: #ff5927;
+}
+
+.alerta-seco {
+  background-color: #ffee58;
+}
+
+.alerta-umido {
+  background-color: #ffee58;
+}
+
+.ideal-umidade {
+  background-color: #9ccc65;
+}
+
+
+
 .item-regua {
   padding: 5px;
   width: 15%;
@@ -295,6 +328,13 @@ button {
 }
 
 .cor-alerta {
+  width: 13%;
+  height: 30%;
+  border-radius: 50px;
+  margin-top: 6%;
+  /* background-color: #c7c7c7; */
+}
+.cor-alertau {
   width: 13%;
   height: 30%;
   border-radius: 50px;
