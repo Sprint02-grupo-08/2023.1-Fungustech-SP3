@@ -23,6 +23,16 @@ body {
   background-color: #692b2e;
 }
 
+.navBar {
+  width: 400px;
+  display: flex;
+  list-style: none;
+  color: #692b2e;
+  justify-content: space-between;
+  font-size: 17px;
+  padding: 40px 40px 40px 40px;
+}
+
 .dash-right {
   display: flex;
   width: 80%;
@@ -196,30 +206,89 @@ button {
 .perigo-frio {
   background-color: rgb(243, 18, 18);
 }
+.perigo-frio:hover{
+  transform: scale(1.1);
+    transition: all 0.3s;
+}
 
 .perigo-quente {
   background-color: rgb(243, 18, 18);
+}
+.perigo-quente:hover{
+  transform: scale(1.1);
+    transition: all 0.3s;
 }
 
 .emergencia-quente {
   background-color: #ff5927;
 }
-
+.emergencia-quente:hover{
+  transform: scale(1.1);
+  transition: all 0.3s;
+}
 .emergencia-frio {
   background-color: #ff5927;
+}
+.emergencia-frio:hover{
+  transform: scale(1.1);
+  transition: all 0.3s;
 }
 
 .alerta-frio {
   background-color: #ffee58;
 }
-
+.alerta-frio:hover{
+  transform: scale(1.1);
+  transition: all 0.3s;
+}
 .alerta-quente {
   background-color: #ffee58;
 }
 
+.alerta-quente:hover{
+  transform: scale(1.1);
+  transition: all 0.3s;
+}
 .ideal {
   background-color: #9ccc65;
 }
+.ideal:hover{
+  transform: scale(1.1);
+  transition: all 0.3s;
+}
+
+/*NOVO
+*/
+
+.perigo-seco {
+  background-color: rgb(243, 18, 18);
+}
+
+.perigo-umido {
+  background-color: rgb(243, 18, 18);
+}
+
+.emergencia-umido {
+  background-color: #ff5927;
+}
+
+.emergencia-seco {
+  background-color: #ff5927;
+}
+
+.alerta-seco {
+  background-color: #ffee58;
+}
+
+.alerta-umido {
+  background-color: #ffee58;
+}
+
+.ideal-umidade {
+  background-color: #9ccc65;
+}
+
+
 
 .item-regua {
   padding: 5px;
@@ -257,6 +326,13 @@ button {
   text-align: left;
 }
 
+.card span {
+  margin: 0;
+  font-size: 25px;
+  font-weight: lighter;
+  text-align: left;
+}
+
 .cards h1 {
   font-size: 22px;
   width: 100%;
@@ -278,6 +354,13 @@ button {
 }
 
 .cor-alerta {
+  width: 13%;
+  height: 30%;
+  border-radius: 50px;
+  margin-top: 6%;
+  /* background-color: #c7c7c7; */
+}
+.cor-alertau {
   width: 13%;
   height: 30%;
   border-radius: 50px;
