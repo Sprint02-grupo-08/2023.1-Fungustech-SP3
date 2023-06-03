@@ -37,10 +37,8 @@
     <div class="header">
         <div class="container">
             <a href="../public/index.html"><button>Sair</button></a>
-            <select name="unidade" id="unidade" onChange="AbrirSecao(this.value)">
+            <select id="estufasSelect" name="unidade" onChange="AbrirSecao(this.value)">
                 <option value="">Estufas</option>
-                <option value="../public/graficos.html">Estufa 1</option>
-                <option value="../public/graficos.html">Estufa 2</option>
             </select>
             <span><img src="./imgs/logo.png" alt=""></span>
         </div>
@@ -173,6 +171,39 @@
             </div>
 
             <script>
+                var idEmpresa = sessionStorage.getItem('ID_EMPRESA')
+fetch(`/local/buscar/${idEmpresa}`)
+    .then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!")
+
+        if (resposta.ok) {
+            console.log(resposta);
+
+            resposta.json().then(json => {
+                console.log(json);
+                console.log(JSON.stringify(json));
+
+                var estufas = json
+
+var selectElement = document.getElementById('estufasSelect');
+
+// Itera sobre o array de empresas e cria as opções do select
+for (let i = 0; i < estufas.length; i++) {
+const estufa = estufas[i];
+const estufaNome = estufa.nome
+const optionElement = document.createElement('option');
+optionElement.value = '../Dashboard.html'
+optionElement.text = estufaNome;
+selectElement.appendChild(optionElement);
+}
+            });
+
+        } 
+    }).catch(function (erro) {
+        console.log(erro);
+        cardErro.style.display = "block"
+        mensagem_erro.innerHTML = "O Login está inválido";
+    })
 
                 function limparSessao() {
                     window.location.href = "./index.html"
