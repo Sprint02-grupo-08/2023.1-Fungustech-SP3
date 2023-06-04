@@ -33,10 +33,8 @@
                 <li><a href="./cadastrarLocal.html">Cadastrar Estufa</a></li>
                 <li><a href="./cadastrarUsuarioNaEmpresa.html">Cadastrar Usuario</a></li>
             </ul>
-            <select name="unidade" id="unidade" onChange="AbrirSecao(this.value)">
+            <select id="estufasSelect" name="unidade" onChange="AbrirSecao(this.value)">
                 <option value="">Estufas</option>
-                <option value="../Dashboard.html">Estufa 1</option>
-                <option value="../Dashboard.html">Estufa 2</option>
             </select>
 
             <a href="../index.html"><button onclick="sair()">Sair</button></a>
@@ -73,6 +71,40 @@
 </body>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
 <script>
+    var idEmpresa = sessionStorage.getItem('ID_EMPRESA')
+fetch(`/local/buscar/${idEmpresa}`)
+    .then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!")
+
+        if (resposta.ok) {
+            console.log(resposta);
+
+            resposta.json().then(json => {
+                console.log(json);
+                console.log(JSON.stringify(json));
+
+                var estufas = json
+
+var selectElement = document.getElementById('estufasSelect');
+
+// Itera sobre o array de empresas e cria as opções do select
+for (let i = 0; i < estufas.length; i++) {
+const estufa = estufas[i];
+const estufaNome = estufa.nome
+const optionElement = document.createElement('option');
+optionElement.value = '../Dashboard.html'
+optionElement.text = estufaNome;
+selectElement.appendChild(optionElement);
+}
+            });
+
+        } 
+    }).catch(function (erro) {
+        console.log(erro);
+        cardErro.style.display = "block"
+        mensagem_erro.innerHTML = "O Login está inválido";
+    })
+
     var funcionarios;
     var idEmpresa = sessionStorage.getItem('ID_EMPRESA')
 

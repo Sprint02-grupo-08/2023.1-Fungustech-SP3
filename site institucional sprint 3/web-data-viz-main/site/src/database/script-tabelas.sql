@@ -30,6 +30,7 @@ fkEmpresa INT,
 
 CREATE TABLE localEstufa (
 idLocal INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(45) NOT NULL,
 rua VARCHAR(45),
 numero INT,
 cep CHAR(8),
@@ -39,8 +40,10 @@ fkEmp INT,
  CONSTRAINT fkEmpresa FOREIGN KEY (fkEmP)
   REFERENCES empresa (idEmpresa));
   
-  INSERT INTO localEstufa (rua, numero, cep, andar, complemento, fkEmp)
-VALUES ('Rua das Flores', 123, '12345678', 2, 'Apto 201', 1);
+  
+  
+  INSERT INTO localEstufa (nome, rua, numero, cep, andar, complemento, fkEmp)
+VALUES ('estufa teste','Rua das Flores', 123, '12345678', 2, 'Apto 201', 1);
         
 CREATE TABLE medida (
 idMedida INT PRIMARY KEY AUTO_INCREMENT,
@@ -59,10 +62,13 @@ fkEmpresa INT,
    CONSTRAINT idUsuario PRIMARY KEY (idFuncionario, fkEmpresa)
 );
 
-insert into localEstufa values
-('a', 1, '12345678', 2, 'aa');
 
 INSERT INTO medida (dht11_umidade, dht11_temperatura, momento, fkLocal) VALUES (1, 2, now(), 1);
+
+INSERT INTO funcionario (email, fkEmpresa) VALUES 
+('Joao@email.com', 1);
+
+
 
 SELECT * FROM funcionario;
 SELECT * FROM empresa;
