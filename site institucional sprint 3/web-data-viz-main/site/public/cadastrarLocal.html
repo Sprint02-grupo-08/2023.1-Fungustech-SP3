@@ -20,28 +20,29 @@
 
 <body onload="validarSessao()">
 
+    <div class="header-left">
+
+
+        <div class="hello">
+            <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+        </div>
+        <ul class="navBar">
+            <li><a href="./dashboard/cards.html">Dashboard</a></li>
+            <li><a href="./cadastrarLocal.html">Administrar Estufa</a></li>
+            <li><a href="./cadastrarUsuarioNaEmpresa.html">Cadastrar Usuario</a></li>
+            <li><a href="./Manual_De_Instalação.docx">Manual de Instalação</a></li>
+        </ul>
+        <select id="estufasSelect" name="unidade" onChange="AbrirSecao(this.value)">
+            <option value="">Estufas</option>
+        </select>
+
+        <a href="../index.html"><button onclick="sair()">Sair</button></a>
+        <h1><img src="./imgs/logo.png" alt=""></h1>
+
+    </div>
+    
     <div class="dash">
 
-        <div class="header-left">
-
-
-            <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-            </div>
-            <ul class="navBar">
-                <li><a href="./dashboard/cards.html">Dashboard</a></li>
-                <li><a href="./cadastrarLocal.html">Administrar Estufa</a></li>
-                <li><a href="./cadastrarUsuarioNaEmpresa.html">Cadastrar Usuario</a></li>
-                <li><a href="../Manual_De_Instalação.docx">Manual de Instalação</a></li>
-            </ul>
-            <select id="estufasSelect" name="unidade" onChange="AbrirSecao(this.value)">
-                <option value="">Estufas</option>
-            </select>
-
-            <a href="../index.html"><button onclick="sair()">Sair</button></a>
-            <h1><img src="../imgs/logo.png" alt=""></h1>
-
-        </div>
 
         <div class="cards-cadastro">
             <div class="card">
@@ -63,10 +64,7 @@
                 </div>
                 <button onclick="salvar()">Salvar</button>
             </div>
-
-
-        </div>
-        <div class="cards-cadastro">
+        
             <div class="card">
                 <h1>Exclua algum local da sua estufa</h1>
 
@@ -75,15 +73,8 @@
                 </select>
                 <button onclick="excluir()">Excluir</button>
             </div>
-            <!-- <div class="card">
-                <h1>Edite algum local da sua estufa</h1>
-
-                <select id="estufasSelect3" name="unidade">
-                    <option value="">Estufas</option>
-                </select>
-                <button onclick="editar()">Salvar</button>
-            </div> -->
         </div>
+
     </div>
 
 </body>

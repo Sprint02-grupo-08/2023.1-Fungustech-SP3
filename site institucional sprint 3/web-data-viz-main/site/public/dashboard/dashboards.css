@@ -190,6 +190,8 @@ button {
 }
 
 .dash {
+  display: flex;
+  align-items: center;
   width: 100%;
   background-color: #161618;
   height: 100vh;
@@ -198,9 +200,25 @@ button {
 
 .regua {
   display: flex;
-  justify-content: center;
-  width: 80%;
+  justify-content: space-evenly;
+  width: 100%;
   margin-top: 30px;
+}
+
+.informacao {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  width: 95%;
+  height: 50px;
+  background-color: #212124;
+  margin-top: 30px;
+}
+
+.informacao span {
+  font-size: 30px;
+  margin: 30px;
+  color: #fff;
 }
 
 .perigo-frio {
@@ -346,6 +364,15 @@ button {
   color: white;
 }
 
+.cards1 {
+  display: flex;
+  justify-content: center;
+  height: 500px;
+  width: 100%;
+  align-items: center;
+  color: white;
+}
+
 .cards-cadastro {
   display: flex;
   justify-content: center;
@@ -367,6 +394,19 @@ button {
   font-size: 20px;
 }
 
+.card1 {
+  margin: 2%;
+  width: 40%;
+  display: flex;
+  text-align: center;
+  height: auto;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #212124;
+  font-size: 20px;
+  border: #fff solid 3px;
+}
+
 .card p {
   margin: 0;
   font-size: 50px;
@@ -385,6 +425,16 @@ button {
   font-size: 22px;
   width: 100%;
   border-bottom: solid #fff 1px;
+  padding: 10px;
+  text-align: center;
+  font-weight: 500;
+  margin: 20px;
+}
+
+.card1 h1 {
+  font-size: 22px;
+  width: 100%;
+  border-bottom: solid #fff 3px;
   padding: 10px;
   text-align: center;
   font-weight: 500;
@@ -525,7 +575,7 @@ input {
   color: #fff;
   border-radius: 20px;
   height: 80px;
-  width: 200px;
+  width: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -535,7 +585,7 @@ input {
   color: #fff;
   border-radius: 20px;
   height: 80px;
-  width: 200px;
+  width: auto;
   display: flex;
   justify-content: center;
   align-items: center;
