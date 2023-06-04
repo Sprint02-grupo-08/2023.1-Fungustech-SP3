@@ -20,126 +20,77 @@
 
 <body onload="validarSessao()">
 
-        <div class="dash">
+    <div class="dash">
 
-            <div class="header-left">
-                
+        <div class="header-left">
 
-                    <div class="hello">
-                        <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+
+            <div class="hello">
+                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+            </div>
+            <ul class="navBar">
+                <li><a href="./dashboard/cards.html">Cards</a></li>
+                <li><a href="./cadastrarLocal.html">Administrar Estufa</a></li>
+                <li><a href="./cadastrarUsuarioNaEmpresa.html">Cadastrar Usuario</a></li>
+            </ul>
+            <select id="estufasSelect" name="unidade" onChange="AbrirSecao(this.value)">
+                <option value="">Estufas</option>
+            </select>
+
+            <a href="../index.html"><button onclick="sair()">Sair</button></a>
+            <h1><img src="../imgs/logo.png" alt=""></h1>
+
+        </div>
+
+        <div class="cards-cadastro">
+            <div class="card">
+                <h1>Cadastre o local da sua estufa</h1>
+
+                <div class="temperatura">
+                    <div id="endereco">
+                        <input type="text" id="input_nome" placeholder="Nome do local">
                     </div>
-                    <ul class="navBar">
-                        <li><a href="./dashboard/cards.html">Cards</a></li>
-                        <li ><a href="./cadastrarLocal.html">Cadastrar Estufa</a></li>
-                        <li ><a href="./cadastrarUsuarioNaEmpresa.html">Cadastrar Usuario</a></li>
-                    </ul>
-                    <select id="estufasSelect" name="unidade" onChange="AbrirSecao(this.value)">
-                        <option value="">Estufas</option>
-                    </select>
-                    
-                    <a href="../index.html"><button onclick="sair()">Sair</button></a>
-                    <h1><img src="../imgs/logo.png" alt=""></h1>
-                
+                    <div id="endereco">
+                        <input type="text" name="" id="input_rua" placeholder="Endereço">
+                        <input type="text" name="" id="input_numero" placeholder="Numero">
+                    </div>
+                    <div class="endereco">
+                        <input type="text" id="input_cep" placeholder="CEP">
+                        <input type="text" name="" id="input_andar" placeholder="Andar">
+                        <input type="text" name="" id="input_complemento" placeholder="complemento">
+                    </div>
+                </div>
+                <button onclick="salvar()">Salvar</button>
             </div>
 
-            <div class="cards">
-                <div class="card">
-                    <h1>Cadastre o local da sua estufa</h1>
-                   
-                    <div class="temperatura">
-                        <div id="endereco">
-                            <input type="text" id="input_nome" placeholder="Nome do local">
-                        </div>
-                       <div id="endereco">
-                            <input type="text" name="" id="input_rua" placeholder="Endereço">
-                            <input type="text" name="" id="input_numero" placeholder="Numero">
-                       </div>
-                        <div class="endereco">
-                            <input type="text" id="input_cep" placeholder="CEP">
-                            <input type="text" name="" id="input_andar" placeholder="Andar">
-                            <input type="text" name="" id="input_complemento" placeholder="complemento">
-                        </div>
-                    </div>
-                    <button onclick="salvar()">Salvar</button>
-                </div>
 
+        </div>
+        <div class="cards-cadastro">
+            <div class="card">
+                <h1>Exclua algum local da sua estufa</h1>
 
+                <select id="estufasSelect2" name="unidade">
+                    <option value="">Estufas</option>
+                </select>
+                <button onclick="excluir()">Salvar</button>
+            </div>
+            <div class="card">
+                <h1>Edite algum local da sua estufa</h1>
+
+                <select id="estufasSelect3" name="unidade">
+                    <option value="">Estufas</option>
+                </select>
+                <button onclick="editar()">Salvar</button>
+            </div>
         </div>
     </div>
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
 <script>
-var idEmpresa = sessionStorage.getItem('ID_EMPRESA')
-fetch(`/local/buscar/${idEmpresa}`)
-    .then(function (resposta) {
-        console.log("ESTOU NO THEN DO entrar()!")
-
-        if (resposta.ok) {
-            console.log(resposta);
-
-            resposta.json().then(json => {
-                console.log(json);
-                console.log(JSON.stringify(json));
-
-                var estufas = json
-
-var selectElement = document.getElementById('estufasSelect');
-
-// Itera sobre o array de empresas e cria as opções do select
-for (let i = 0; i < estufas.length; i++) {
-const estufa = estufas[i];
-const estufaNome = estufa.nome
-const optionElement = document.createElement('option');
-optionElement.value = '../Dashboard.html'
-optionElement.text = estufaNome;
-selectElement.appendChild(optionElement);
-}
-            });
-
-        } 
-    }).catch(function (erro) {
-        console.log(erro);
-        cardErro.style.display = "block"
-        mensagem_erro.innerHTML = "O Login está inválido";
-    })
-
-
-
-
-function salvar(){
-
-var nome = input_nome.value;
-var rua = input_rua.value;
-var cep = input_cep.value;
-var numero = Number(input_numero.value);
-var andar = Number(input_andar.value);
-var complemento = Number(input_complemento.value);
-
-var fkEmpresa = sessionStorage.getItem('ID_EMPRESA')
-
-    if (nome == "" || cep == "" || numero == "" || fkEmpresa == '' || complemento == '' || andar == "" || rua == "") {
-
-        Swal.fire('TODOS OS CAMPOS PRECISAM SER PREENCHIDOS')
-
-        } else {
-            fetch("/local/cadastrar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            
-                
-            },
-            body: JSON.stringify({
-                nomeServer: nome,
-                ruaServer: rua,
-                cepServer: cep,
-                numeroServer: numero,
-                andarServer: andar,
-                complementoServer: complemento,
-                fkEmpresaServer: fkEmpresa
-            })
-        }).then(function (resposta) {
+    var idEmpresa = sessionStorage.getItem('ID_EMPRESA')
+    fetch(`/local/buscar/${idEmpresa}`)
+        .then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!")
 
             if (resposta.ok) {
@@ -147,34 +98,152 @@ var fkEmpresa = sessionStorage.getItem('ID_EMPRESA')
 
                 resposta.json().then(json => {
                     console.log(json);
-                    console.log(JSON.stringify(json))
-                    
-                    setTimeout(function () {
-                        window.location.href = "dashboard.html";
-                    }, 1000); // 
+                    console.log(JSON.stringify(json));
+
+                    var estufas = json
+
+                    var selectElement = document.getElementById('estufasSelect');
+                    var selectElement2 = document.getElementById('estufasSelect2');
+                    var selectElement3 = document.getElementById('estufasSelect3');
+
+                    // Itera sobre o array de empresas e cria as opções do select
+                    for (let i = 0; i < estufas.length; i++) {
+                        const estufa = estufas[i];
+                        const estufaNome = estufa.nome;
+
+                        // Cria um novo elemento de opção em cada iteração
+                        const optionElement = document.createElement('option');
+                        optionElement.value = '../Dashboard.html';
+                        optionElement.text = estufaNome;
+
+                        selectElement.appendChild(optionElement);
+
+                        // Cria outro novo elemento de opção
+                        const optionElement2 = document.createElement('option');
+                        optionElement2.value = estufa.fkEmp;
+                        optionElement2.text = estufaNome;
+                        selectElement2.appendChild(optionElement2);
+
+                        // Cria um terceiro novo elemento de opção
+                        const optionElement3 = document.createElement('option');
+                        optionElement3.value = estufa.fkEmp;
+                        optionElement3.text = estufaNome;
+
+                        selectElement3.appendChild(optionElement3);
+                    }
+
 
                 });
 
-            } else {
-
-                console.log("Houve um erro ao tentar realizar o login");
-
-            cardErro.style.display = "block"
-            alert ("O Login está inválido")
-                resposta.text().then(texto => {
-                    console.error(texto);
-                });
             }
-
         }).catch(function (erro) {
             console.log(erro);
-            Swal.fire('ERRO AO CADASTRAR LOCAL')
-        })          
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "O Login está inválido";
+        })
+
+
+
+
+    function salvar() {
+
+        var nome = input_nome.value;
+        var rua = input_rua.value;
+        var cep = input_cep.value;
+        var numero = Number(input_numero.value);
+        var andar = Number(input_andar.value);
+        var complemento = Number(input_complemento.value);
+
+        var fkEmpresa = sessionStorage.getItem('ID_EMPRESA')
+
+        if (nome == "" || cep == "" || numero == "" || fkEmpresa == '' || complemento == '' || andar == "" || rua == "") {
+
+            Swal.fire('TODOS OS CAMPOS PRECISAM SER PREENCHIDOS')
+
+        } else {
+            fetch("/local/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+
+
+                },
+                body: JSON.stringify({
+                    nomeServer: nome,
+                    ruaServer: rua,
+                    cepServer: cep,
+                    numeroServer: numero,
+                    andarServer: andar,
+                    complementoServer: complemento,
+                    fkEmpresaServer: fkEmpresa
+                })
+            }).then(function (resposta) {
+                console.log("ESTOU NO THEN DO entrar()!")
+
+                if (resposta.ok) {
+                    console.log(resposta);
+
+                    resposta.json().then(json => {
+                        console.log(json);
+                        console.log(JSON.stringify(json))
+
+                        Swal.fire('CADASTRO DA ESTUFA EFETUADO COM SUCESSO ')
+                        setTimeout(function () {
+                            window.location.href = "dashboard.html";
+                        }, 1000); // 
+
+                    });
+
+                } else {
+
+                    console.log("Houve um erro ao tentar realizar o login");
+
+                    cardErro.style.display = "block"
+                    alert("O Login está inválido")
+                    resposta.text().then(texto => {
+                        console.error(texto);
+                    });
+                }
+
+            }).catch(function (erro) {
+                console.log(erro);
+                Swal.fire('ERRO AO CADASTRAR LOCAL')
+            })
         }
-}
-     
-    function AbrirSecao(secao){
-                window.open(""+secao+"", "_parent");
+    }
+
+    function excluir() {
+        var idSelecionado = estufasSelect2.value
+        var nomeEstufa = estufasSelect2.options[estufasSelect2.selectedIndex].textContent;
+        console.log(nomeEstufa)
+
+        fetch('/local/remover', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ 
+                idServer: idSelecionado,
+                nomeServer: nomeEstufa
+            }) // Informe o ID do item a ser excluído
+        })
+            .then(response => response.json())
+            .then(data => {
+                // Lógica para tratar a resposta após a exclusão
+                Swal.fire('ESTUFA REMOVIDA COM SUCESSO')
+                setTimeout(function () {
+                            location.reload();
+                        }, 1000); // 
+                console.log(data);
+            })
+            .catch(error => {
+                // Lógica para tratar erros
+                console.error('Ocorreu um erro:', error);
+            });
+    }
+
+    function AbrirSecao(secao) {
+        window.open("" + secao + "", "_parent");
     }
 
 </script>

@@ -390,6 +390,15 @@ button {
   color: white;
 }
 
+.cards-cadastro {
+  display: flex;
+  justify-content: center;
+  height: 50vh;
+  width: 100%;
+  align-items: center;
+  color: white;
+}
+
 .card {
   margin: 2%;
   width: 40%;

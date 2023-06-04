@@ -20,6 +20,10 @@ router.post("/autenticar", function (req, res) {
     localController.entrar(req, res);
 });
 
+router.delete("/remover", function (req, res) {
+    localController.remover(req, res);
+});
+
 router.get("/buscar/:idEmpresa", function (req, res) {
     localController.buscarEstufas(req, res);
 })

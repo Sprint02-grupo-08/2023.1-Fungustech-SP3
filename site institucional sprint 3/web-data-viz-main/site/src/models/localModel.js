@@ -31,6 +31,18 @@ function cadastrar(nome, rua, cep, numero, andar, complemento, fkEmp) {
     return database.executar(instrucao);
 }
 
+function remover(nome, idEmpresa) {
+    console.log("ACESSEI O localEstufa MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome , idEmpresa);
+    
+    // Insira exatamente a query do banco aqui, lembrando da cepnclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var instrucao = `
+    DELETE FROM localEstufa WHERE nome = '${nome}' AND fkEmp = '${idEmpresa}';
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 function buscarEstufas(idEmpresa){
     instrucaoSql = ''
 
@@ -49,5 +61,6 @@ module.exports = {
     entrar,
     cadastrar,
     listar,
-    buscarEstufas
+    buscarEstufas,
+    remover
 };

@@ -106,6 +106,38 @@ function cadastrar(req, res) {
     }
 }
 
+function remover(req, res){
+
+    var idEmpresa = req.body.idServer;
+    var nome = req.body.nomeServer
+
+    console.log(`Recuperando medidas em tempo real`);
+
+    if (idEmpresa == undefined) {
+        res.status(400).send("Seu nome está undefined!");
+    } else if (nome == undefined) {
+        res.status(400).send("Seu cep está undefined!");
+    } else {
+        
+        // Passe os valores como parâmetro e vá para o arquivo localModel.js
+        localModel.remover(nome, idEmpresa)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
 function buscarEstufas(req, res){
 
         var idEmpresa = req.params.idEmpresa;
@@ -130,5 +162,6 @@ module.exports = {
     cadastrar,
     listar,
     testar,
-    buscarEstufas
+    buscarEstufas,
+    remover
 }
