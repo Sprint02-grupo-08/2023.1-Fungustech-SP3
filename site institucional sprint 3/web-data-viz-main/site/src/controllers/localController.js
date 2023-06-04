@@ -33,7 +33,7 @@ function entrar(req, res) {
     } else if (fkEmpresa == undefined) {
         res.status(400).send("Sua fkEmpresa está indefinida!");
     } else {
-        
+       
         localModel.entrar(numero, fkEmpresa)
             .then(
                 function (resultado) {
@@ -86,7 +86,7 @@ function cadastrar(req, res) {
     } else if (fkEmp == undefined) {
         res.status(400).send("Sua fkEmpresa está undefined!");
     } else {
-        
+       
         // Passe os valores como parâmetro e vá para o arquivo localModel.js
         localModel.cadastrar(nome, rua, cep, numero, andar, complemento, fkEmp)
             .then(
@@ -118,7 +118,7 @@ function remover(req, res){
     } else if (nome == undefined) {
         res.status(400).send("Seu cep está undefined!");
     } else {
-        
+       
         // Passe os valores como parâmetro e vá para o arquivo localModel.js
         localModel.remover(nome, idEmpresa)
             .then(
@@ -141,9 +141,9 @@ function remover(req, res){
 function buscarEstufas(req, res){
 
         var idEmpresa = req.params.idEmpresa;
-    
+   
         console.log(`Recuperando medidas em tempo real`);
-    
+   
         localModel.buscarEstufas(idEmpresa).then(function (resultado) {
             if (resultado.length > 0) {
                 res.status(200).json(resultado);

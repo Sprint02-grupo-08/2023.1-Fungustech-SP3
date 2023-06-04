@@ -24,7 +24,7 @@ body {
 }
 
 .navBar {
-  width: 400px;
+  width: 600px;
   display: flex;
   list-style: none;
   color: #692b2e;
@@ -190,6 +190,8 @@ button {
 }
 
 .dash {
+  display: flex;
+  align-items: center;
   width: 100%;
   background-color: #161618;
   height: 100vh;
@@ -198,9 +200,25 @@ button {
 
 .regua {
   display: flex;
-  justify-content: center;
-  width: 80%;
+  justify-content: space-evenly;
+  width: 100%;
   margin-top: 30px;
+}
+
+.informacao {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  width: 95%;
+  height: 50px;
+  background-color: #212124;
+  margin-top: 30px;
+}
+
+.informacao span {
+  font-size: 30px;
+  margin: 30px;
+  color: #fff;
 }
 
 .perigo-frio {
@@ -208,10 +226,7 @@ button {
   position: relative;
   transition: all 0.3s ease;
 }
-.perigo-frio:hover{
-  width: 300px;
-  height: 100px;
-}
+
 .perigo-frio::after{
   content: "Verifique imediatamente as estufas!";
   position: absolute;
@@ -223,18 +238,13 @@ button {
   display: none;
   transition: all 0.3s ease;
 }
-.perigo-frio:hover::after{
-  display: block;
-}
+
 .perigo-quente {
   background-color: rgb(243, 18, 18);
   position: relative;
   transition: all 0.3s ease;
 }
-.perigo-quente:hover{
-  width: 300px;
-  height: 100px;
-}
+
 .perigo-quente::after{
   content: "Verifique imediatamente as estufas !";
   position: absolute;
@@ -246,20 +256,13 @@ button {
   display: none;
   transition: all 0.3s ease;
 }
-.perigo-quente:hover::after{
-  display: block;
-}
 
 .emergencia-quente {
   background-color: #ff5927;
   position: relative;
   transition: all 0.3s ease;
 }
-.emergencia-quente:hover{
-  width: 300px;
-  height: 100px;
 
-}
 .emergencia-quente::after{
   content: "Verifique imediatamente as estufas !";
   position: absolute;
@@ -271,19 +274,13 @@ button {
   display: none;
   transition: all 0.3s ease;
 }
-.emergencia-quente:hover::after{
-  display: block;
-}
+
 .emergencia-frio {
   background-color: #ff5927;
   position: relative;
   transition: all 0.3s ease;
 }
-.emergencia-frio:hover{
-  width: 300px;
-  height: 100px;
 
-}
 .emergencia-frio::after{
   content: "Sua estufa corre perigo !!";
   position: absolute;
@@ -295,18 +292,13 @@ button {
   display: none;
   transition: all 0.3s ease;
 }
-.emergencia-frio:hover::after{
-  display: block;
-}
+
 .alerta-frio {
   background-color: #ffee58;
   position: relative;
   transition: all 0.3s ease;
 }
-.alerta-frio:hover{
-  width: 300px;
-  
-}
+
 .alerta-frio::after{
   content: "Atenção, tem algo errado !";
   position: absolute;
@@ -318,20 +310,13 @@ button {
   display: none;
   transition: all 0.3s ease;
 }
-.alerta-frio:hover::after{
-  display: block;
-}
 
 .alerta-quente {
   background-color: #ffee58;
   position: relative;
   transition: all 0.3s ease;
 }
-.alerta-quente:hover{
-  width: 300px;
-  height: 100px;
-  
-}
+
 .alerta-quente::after{
   content: "Atenção, tem algo errado !";
   position: absolute;
@@ -343,21 +328,13 @@ button {
   display: none;
   transition: all 0.3s ease;
 }
-.alerta-quente:hover::after{
-  display: block;
-}
 
 .ideal {
   background-color: #9ccc65;
   position: relative;
   transition: all 0.3s ease;
 }
-.ideal:hover{
-  width: 300px;
-  height: 100px;
 
-  
-}
 .ideal::after{
   content: "Esta tudo nos OK!";
   position: absolute;
@@ -368,9 +345,6 @@ button {
   padding: 10px;
   display: none;
   transition: all 0.3s ease;
-}
-.ideal:hover::after{
-  display: block;
 }
 
 .item-regua {
@@ -385,6 +359,15 @@ button {
   display: flex;
   justify-content: center;
   height: 100vh;
+  width: 100%;
+  align-items: center;
+  color: white;
+}
+
+.cards1 {
+  display: flex;
+  justify-content: center;
+  height: 500px;
   width: 100%;
   align-items: center;
   color: white;
@@ -411,6 +394,19 @@ button {
   font-size: 20px;
 }
 
+.card1 {
+  margin: 2%;
+  width: 40%;
+  display: flex;
+  text-align: center;
+  height: auto;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #212124;
+  font-size: 20px;
+  border: #fff solid 3px;
+}
+
 .card p {
   margin: 0;
   font-size: 50px;
@@ -429,6 +425,16 @@ button {
   font-size: 22px;
   width: 100%;
   border-bottom: solid #fff 1px;
+  padding: 10px;
+  text-align: center;
+  font-weight: 500;
+  margin: 20px;
+}
+
+.card1 h1 {
+  font-size: 22px;
+  width: 100%;
+  border-bottom: solid #fff 3px;
   padding: 10px;
   text-align: center;
   font-weight: 500;
@@ -569,7 +575,7 @@ input {
   color: #fff;
   border-radius: 20px;
   height: 80px;
-  width: 200px;
+  width: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -579,7 +585,7 @@ input {
   color: #fff;
   border-radius: 20px;
   height: 80px;
-  width: 200px;
+  width: auto;
   display: flex;
   justify-content: center;
   align-items: center;
