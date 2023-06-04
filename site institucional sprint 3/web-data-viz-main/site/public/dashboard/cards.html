@@ -139,7 +139,7 @@
         <div class="container">Entre em contato conosco atráves do email: <b>fungustech-help.freshdesk.com</b>
         </div>
 </body>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
 <script>
     var idEmpresa = sessionStorage.getItem('ID_EMPRESA')
     fetch(`/local/buscar/${idEmpresa}`)
@@ -242,6 +242,7 @@
         if (temperatura >= limites.muito_quente) {
             classe_temperatura = 'cor-alerta perigo-quente';
             console.log("caiu no 1")
+<<<<<<< Updated upstream
         }
 
         // validação do pop up
@@ -263,6 +264,9 @@
         // fim do pop up
 
         else if (temperatura < limites.muito_quente && temperatura >= limites.quente) {
+=======
+        }   else if (temperatura < limites.muito_quente && temperatura >= limites.quente) {
+>>>>>>> Stashed changes
             classe_temperatura = 'cor-alerta alerta-quente';
             console.log("caiu no 2")
         }
@@ -299,6 +303,24 @@
             classe_temperaturau = 'cor-alerta perigo-quente';
             console.log("caiu no 5")
         }
+
+                // validação do pop up
+         if (temperatura < limites.ideal || temperatura > limites.ideal) {
+            Swal.fire({
+            icon: 'warning',
+            title: 'TEMPERATURA FORA DOS PADRÕES IDEAIS',
+            text: 'VÁ PARA A ESTUFA 1 ARRUMAR OS PADRÕES',
+        })
+        }
+
+        else if (umidade < limitesu.ideal || umidade > limites.ideal) {
+            Swal.fire({
+            icon: 'warning',
+            title: 'UMIDADE FORA DOS PADRÕES IDEAIS',
+            text: 'VÁ PARA A ESTUFA 1 ARRUMAR OS PADRÕES',
+        })
+        }
+        // fim do pop up
 
         var card;
 
