@@ -21,7 +21,7 @@ function entrar(numero, fkEmpresa) {
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucao
 function cadastrar(nome, rua, cep, numero, andar, complemento, fkEmp) {
     console.log("ACESSEI O localEstufa MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", rua, cep, numero, andar, complemento, fkEmp);
-    
+   
     // Insira exatamente a query do banco aqui, lembrando da cepnclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
@@ -33,7 +33,7 @@ function cadastrar(nome, rua, cep, numero, andar, complemento, fkEmp) {
 
 function remover(nome, idEmpresa) {
     console.log("ACESSEI O localEstufa MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome , idEmpresa);
-    
+   
     // Insira exatamente a query do banco aqui, lembrando da cepnclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
