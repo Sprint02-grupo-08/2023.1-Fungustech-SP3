@@ -591,4 +591,10 @@ input {
   justify-content: center;
   align-items: center;
 }
+.ajuda{
+  display: flex;
+  justify-content: center;
+  width: auto;
+  font-size: x-large
+}
 
