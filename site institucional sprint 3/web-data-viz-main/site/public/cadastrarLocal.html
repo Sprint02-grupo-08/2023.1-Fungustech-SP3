@@ -56,8 +56,8 @@
                         <input type="text" name="" id="input_numero" placeholder="Numero">
                     </div>
                     <div class="endereco">
-                        <input type="text" id="input_cep" placeholder="CEP">
-                        <input type="text" name="" id="input_andar" placeholder="Andar">
+                        <input type="number" id="input_cep" placeholder="CEP">
+                        <input type="number" name="" id="input_andar" placeholder="Andar">
                         <input type="text" name="" id="input_complemento" placeholder="complemento">
                     </div>
                 </div>
@@ -156,7 +156,7 @@
         var complemento = input_complemento.value;
 
         var fkEmpresa = sessionStorage.getItem('ID_EMPRESA')
-
+        console.log(nome,rua,cep,numero,andar,complemento,fkEmpresa)
         if (nome == "" || cep == "" || numero == "" || fkEmpresa == '' || complemento == '' || andar == "" || rua == "") {
 
             Swal.fire('TODOS OS CAMPOS PRECISAM SER PREENCHIDOS')
