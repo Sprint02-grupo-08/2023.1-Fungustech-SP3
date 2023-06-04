@@ -128,3 +128,8 @@ function transformarEmDiv({ idAquario, temp, grauDeAviso, grauDeAvisoCor }) {
     <div class="alarme-sino"></div>
     </div>`;
 }
+
+
+
+
+
