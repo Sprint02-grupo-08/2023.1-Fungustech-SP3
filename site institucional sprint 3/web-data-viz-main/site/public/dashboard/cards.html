@@ -13,7 +13,7 @@
 
 
     <script src="../js/funcoes.js"></script>
-    
+
     <script src="alerta.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
@@ -36,20 +36,20 @@
         <select id="estufasSelect" name="unidade" onChange="AbrirSecao(this.value)">
             <option value="">Estufas</option>
         </select>
-        
+
         <a href="../index.html"><button onclick="sair()">Sair</button></a>
         <h1><img src="../imgs/logo.png" alt=""></h1>
     </div>
 
     <div class="janela">
 
-        
+
         <div class="informacao"><span>Analise</span></div>
         <div class="cards1">
             <div class="card1">
                 <h1>Estufas - Analise de Temperatura</h1>
                 <div class="temperatura">
-                   <p id="temp_sens_1">-°C</p>
+                    <p id="temp_sens_1">-°C</p>
                     <div class="classe_temperatura" id="card_1"></div>
                 </div>
             </div>
@@ -129,44 +129,51 @@
             </div>
         </div>
     </div>
+    <div class="footer">
+        <h4 class="container">Precisa de ajuda ?</h4>
+        
+    </div>
 
-
+    </div>
+    <div class="footer">
+        <div class="container">Entre em contato conosco atráves do email: <b>fungustech-help.freshdesk.com</b>
+        </div>
 </body>
 
 <script>
     var idEmpresa = sessionStorage.getItem('ID_EMPRESA')
-fetch(`/local/buscar/${idEmpresa}`)
-    .then(function (resposta) {
-        console.log("ESTOU NO THEN DO entrar()!")
+    fetch(`/local/buscar/${idEmpresa}`)
+        .then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
 
-        if (resposta.ok) {
-            console.log(resposta);
+            if (resposta.ok) {
+                console.log(resposta);
 
-            resposta.json().then(json => {
-                console.log(json);
-                console.log(JSON.stringify(json));
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
 
-                var estufas = json
+                    var estufas = json
 
-var selectElement = document.getElementById('estufasSelect');
+                    var selectElement = document.getElementById('estufasSelect');
 
-// Itera sobre o array de empresas e cria as opções do select
-for (let i = 0; i < estufas.length; i++) {
-const estufa = estufas[i];
-const estufaNome = estufa.nome
-const optionElement = document.createElement('option');
-optionElement.value = '../Dashboard.html'
-optionElement.text = estufaNome;
-selectElement.appendChild(optionElement);
-}
-            });
+                    // Itera sobre o array de empresas e cria as opções do select
+                    for (let i = 0; i < estufas.length; i++) {
+                        const estufa = estufas[i];
+                        const estufaNome = estufa.nome
+                        const optionElement = document.createElement('option');
+                        optionElement.value = '../Dashboard.html'
+                        optionElement.text = estufaNome;
+                        selectElement.appendChild(optionElement);
+                    }
+                });
 
-        } 
-    }).catch(function (erro) {
-        console.log(erro);
-        cardErro.style.display = "block"
-        mensagem_erro.innerHTML = "O Login está inválido";
-    })
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "O Login está inválido";
+        })
 
     console.log(usuario)
     function atualizacaoPeriodica() {
@@ -240,18 +247,18 @@ selectElement.appendChild(optionElement);
         // validação do pop up
         else if (temperatura < limites.ideal || temperatura > limites.ideal) {
             Swal.fire({
-            icon: 'warning',
-            title: 'TEMPERATURA FORA DOS PADRÕES IDEAIS',
-            text: 'VÁ PARA A ESTUFA 1 ARRUMAR OS PADRÕES',
-        })
+                icon: 'warning',
+                title: 'TEMPERATURA FORA DOS PADRÕES IDEAIS',
+                text: 'VÁ PARA A ESTUFA 1 ARRUMAR OS PADRÕES',
+            })
         }
 
         else if (umidade < limitesu.ideal || temperatura > limitesu.ideal) {
             Swal.fire({
-            icon: 'warning',
-            title: 'UMIDADE FORA DOS PADRÕES IDEAIS',
-            text: 'VÁ PARA A ESTUFA 1 ARRUMAR OS PADRÕES',
-        })
+                icon: 'warning',
+                title: 'UMIDADE FORA DOS PADRÕES IDEAIS',
+                text: 'VÁ PARA A ESTUFA 1 ARRUMAR OS PADRÕES',
+            })
         }
         // fim do pop up
 
@@ -298,8 +305,8 @@ selectElement.appendChild(optionElement);
         if (idAquario == 1) {
             temp_sens_1.innerHTML = temperatura + "°C";
             card = card_1
-            
-        temp_sens_3.innerHTML = umidade + "%"
+
+            temp_sens_3.innerHTML = umidade + "%"
         } else if (idAquario == 2) {
             temp_sens_2.innerHTML = temperatura + "°C";
             card = card_2
@@ -316,8 +323,8 @@ selectElement.appendChild(optionElement);
         temp_sens_3.className = classe_temperaturau;
     }
 
-    function AbrirSecao(secao){
-                window.open(""+secao+"", "_parent");
+    function AbrirSecao(secao) {
+        window.open("" + secao + "", "_parent");
     }
 
 </script>

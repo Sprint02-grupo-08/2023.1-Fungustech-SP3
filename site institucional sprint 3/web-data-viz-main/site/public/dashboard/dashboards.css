@@ -12,6 +12,7 @@ body {
   align-items: center;
   height: auto;
   background-color: #161618;
+  padding: 30px;
 }
 
 .fundo-janela{
@@ -589,5 +590,11 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.ajuda{
+  display: flex;
+  justify-content: center;
+  width: auto;
+  font-size: x-large
 }
 
