@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../css/fungi.css">
     <link rel="stylesheet" href="dashboards.css">
 
+
     <script src="../js/funcoes.js"></script>
     
     <script src="alerta.js"></script>
@@ -235,6 +236,25 @@ selectElement.appendChild(optionElement);
             classe_temperatura = 'cor-alerta perigo-quente';
             console.log("caiu no 1")
         }
+
+        // validação do pop up
+        else if (temperatura < limites.ideal || temperatura > limites.ideal) {
+            Swal.fire({
+            icon: 'warning',
+            title: 'TEMPERATURA FORA DOS PADRÕES IDEAIS',
+            text: 'VÁ PARA A ESTUFA 1 ARRUMAR OS PADRÕES',
+        })
+        }
+
+        else if (umidade < limitesu.ideal || temperatura > limitesu.ideal) {
+            Swal.fire({
+            icon: 'warning',
+            title: 'UMIDADE FORA DOS PADRÕES IDEAIS',
+            text: 'VÁ PARA A ESTUFA 1 ARRUMAR OS PADRÕES',
+        })
+        }
+        // fim do pop up
+
         else if (temperatura < limites.muito_quente && temperatura >= limites.quente) {
             classe_temperatura = 'cor-alerta alerta-quente';
             console.log("caiu no 2")
