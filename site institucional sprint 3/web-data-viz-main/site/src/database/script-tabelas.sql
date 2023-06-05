@@ -11,7 +11,7 @@ DROP TABLE leitura;
 CREATE TABLE empresa (
 idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(45),
-senha VARCHAR(45),
+senha VARCHAR(64),
 CNPJ VARCHAR (45)) AUTO_INCREMENT = 01;
 
 insert into empresa values 
@@ -21,7 +21,7 @@ CREATE TABLE usuario (
 idUsuario INT AUTO_INCREMENT,
 nome VARCHAR(45),
 email VARCHAR(45),
-senha VARCHAR(45),
+senha VARCHAR(64),
 fkEmpresa INT,
  CONSTRAINT fkEmp FOREIGN KEY (fkEmpresa)
   REFERENCES empresa (idEmpresa),
